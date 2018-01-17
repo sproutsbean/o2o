@@ -1,0 +1,924 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+"""
+@author:user
+@file: zhongduan.py
+@time: 2017/11/14
+"""
+from com.ea.common import tools
+from com.ea.common.cardnumber import IdCardNumber
+from com.ea.common.cardname import cardname
+from selenium.webdriver.common.action_chains import ActionChains
+import sys
+import os
+import time
+from selenium.webdriver.support.select import Select
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from com.ea.common import zhengxin
+from com.ea.common import checkpoint
+
+import unittest
+from com.ea.common import menu
+
+
+class MyTestCase(unittest.TestCase):
+    cardNo = IdCardNumber.getRandomIdNumber(1)[0]
+    fullname, first_name, second_name, english_name = cardname.get_name()
+    phoneNo = cardname.createPhone()
+    screenshot_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))),
+                                   'screenshot\\' + os.path.splitext(os.path.basename(__file__))[0])
+    urgent_usernames = ["张三", "李四"]
+    urgent_userphones = ["13625648852", "13625648853"]
+    urgent_useraddres = "无名路"
+
+    zhengxingdanhao = ""
+    loanNo = ''
+    pic_name = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))),
+                            'resource\\file.jpg')
+    file_name = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))),
+                             'resource\hk_plan.xls')
+
+    @classmethod
+    def setUpClass(cls):
+        cls.driver, cls.wait = tools.getdriver()
+        cls.actions = ActionChains(cls.driver)
+        tools.del_pics(MyTestCase.screenshot_path)
+        tools.login(cls.driver, cls.wait)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
+        # pass
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    def test_a_zhengxin_apply(self):
+        u"""创建征信"""
+        driver, wait = self.driver, self.wait
+        # actions = self.actions
+        casename = sys._getframe().f_code.co_name
+        MyTestCase.zhengxingdanhao = zhengxin.zhengxin_apply(self, driver, wait,
+                                                             MyTestCase.cardNo,
+                                                             MyTestCase.first_name,
+                                                             MyTestCase.second_name, MyTestCase.english_name,
+                                                             MyTestCase.fullname, MyTestCase.phoneNo,
+                                                             MyTestCase.screenshot_path, MyTestCase.pic_name, casename,
+                                                             platform="江西", bank="江西银行")
+
+    def test_b_zhengxin_approve(self):
+        u"""审批征信"""
+        casename = sys._getframe().f_code.co_name
+        driver, wait = self.driver, self.wait
+        # actions = self.actions
+        # MyTestCase.zhengxingdanhao = "O2OZX-1711-01515"
+        zhengxin.zhengxin_approve(self, driver, wait, MyTestCase.zhengxingdanhao,
+                                  MyTestCase.screenshot_path, MyTestCase.pic_name, casename)
+
+    def test_c_loan_apply(self):
+        u"""申请贷款"""
+
+        driver, wait = self.driver, self.wait
+        # actions = self.actions
+        casename = sys._getframe().f_code.co_name
+        # MyTestCase.cardNo = "320682197203075576"
+        print("申请贷款开始")
+        print("采用的身份证号: " + MyTestCase.cardNo)
+        try:
+            # 点击申请贷款
+            menu.go_to_loan_apply(driver)
+            # 输入身份证点击下一步
+            driver.find_element_by_id("idCard").send_keys(MyTestCase.cardNo)
+            driver.find_element_by_css_selector("input[value='下一步']").click()
+            # 选择婚姻状况
+            select = Select(driver.find_element_by_name("maritalStatus"))
+            select.select_by_visible_text("未婚")
+            # 选择贷款类型
+            select = Select(driver.find_element_by_id("loanType"))
+            select.select_by_visible_text("流通贷-厂家")
+            # 点击确定按钮
+            driver.find_element_by_css_selector("input[value='确认']").click()
+            driver.find_element_by_xpath("//button[text()='确认']").click()
+            # 输入信贷经理
+            driver.find_element_by_name("operatorName").send_keys("李")
+            driver.find_element_by_id("suggest_row1").click()
+            # 输入申请金额
+            driver.find_element_by_id("loanaMount").send_keys("50000")
+            # 选择经营模式
+            select = Select(driver.find_element_by_id("operationModel"))
+            select.select_by_visible_text("共享模式")
+            # 输入渠道名称
+            driver.find_element_by_name("partnerName").send_keys("深圳")
+            wait.until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='partnerName']+div>div>span")))
+            time.sleep(1)
+            driver.find_element_by_css_selector("input[name='partnerName']+div>div>span").click()
+            # 输入经办平台
+            driver.find_element_by_name("ltdName").send_keys("深圳平台")
+            time.sleep(1)
+            driver.find_element_by_xpath("//span[@id='default_show']/div/div/span").click()
+            # 点击保存按钮
+            driver.find_element_by_css_selector("input[value='保 存']").click()
+            # 点击选择征信报告
+            driver.find_element_by_xpath("//a[text()='选择征信报告']").click()
+            # 勾选征信报告
+            driver.find_element_by_name('ids').click()
+            self.assertTrue(driver.find_element_by_name('ids').is_selected())
+            # 点击保存按钮
+            driver.find_element_by_css_selector("input[value='保存']").click()
+            # 往下滚动页面
+            tools.page_down(driver)
+            time.sleep(1)
+            # 点击保存按钮
+            driver.find_element_by_css_selector("input[value='保 存']").click()
+            time.sleep(2)
+            # 点击提交征信准入流程
+            driver.find_element_by_xpath("//a[text()='提交征信准入流程']").click()
+            # 检查提交是否成功并获取贷款单号
+            wait.until(
+                EC.presence_of_element_located((By.XPATH, "//td[text()='贷款单号:']/following-sibling::td[1]")))
+            MyTestCase.loanNo = driver.find_element_by_xpath(
+                "//td[text()='贷款单号:']/following-sibling::td[1]").text
+            self.assertIsNotNone(MyTestCase.loanNo)
+            print("产生的贷款单号是:" + MyTestCase.loanNo)
+            print("申请贷款结束")
+        except Exception as e:
+            shottime = tools.get_current_time()
+            picname = MyTestCase.screenshot_path + "\\" + shottime + casename + ".png"
+            driver.get_screenshot_as_file(picname)
+            print("运行失败,请查看图片:" + picname)
+            raise e
+
+    def test_d_loan_approve(self):
+        u"""贷款审批"""
+        driver, wait = self.driver, self.wait
+        # actions = self.actions
+        casename = sys._getframe().f_code.co_name
+        # MyTestCase.loanNo = 'SK0027-BP-1711-00001'
+        print("审批贷款开始")
+        print("使用的贷款单号是:" + MyTestCase.loanNo)
+        try:
+            # 进入待办查询页面
+            menu.go_to_wait_todo_query(driver)
+            # 输入贷款单号查询
+            driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+            driver.find_element_by_css_selector("input[name='queryAll']").click()
+            self.assertTrue(driver.find_element_by_css_selector("input[name='queryAll']").is_selected())
+            driver.find_element_by_css_selector("input[value='搜索']").click()
+            wait.until(
+                EC.visibility_of_all_elements_located(
+                    (By.XPATH, "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a")))
+            # 点击审批流程中第一条记录
+            driver.find_element_by_xpath(
+                "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a").click()
+            time.sleep(1)
+            # 拖动页面到最下面
+            target = driver.find_element_by_xpath("//span[text()='结束节点']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            # 点击编辑按钮(编辑夫妻双方征信负债情况)
+            driver.find_element_by_xpath("//a[text()='编辑']").click()
+            driver.find_element_by_name("bankBalanceOverdue").send_keys("0")
+            driver.find_element_by_name("creditLimitOverdue").send_keys("0")
+            driver.find_element_by_name("nonbankBalanceOverdue").send_keys("0")
+            target = driver.find_element_by_css_selector("input[name='creditSearch']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            driver.find_element_by_css_selector("input[value='保存']").click()
+            time.sleep(1)
+            target = driver.find_element_by_xpath("//*[text()='  二、借款人负债合计  ']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+
+            # 输入审批意见
+            wait.until(
+                EC.presence_of_element_located(
+                    (By.XPATH, "//td[text()='审核意见:']/following-sibling::td[1]/textarea")))
+            driver.find_element_by_xpath(
+                "//td[text()='审核意见:']/following-sibling::td[1]/textarea").send_keys(
+                "OK")
+            # 点击通过按钮并确认
+            time.sleep(1)
+            wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[value='通 过']")))
+            driver.find_element_by_css_selector("input[value='通 过']").click()
+            driver.find_element_by_xpath("//button[text()='确认']").click()
+            time.sleep(3)
+            # 检查点
+            checkpoint.loan_approve_checkpoint(self, driver, MyTestCase.loanNo)
+            print("审批贷款结束")
+        except Exception as e:
+            shottime = tools.get_current_time()
+            picname = MyTestCase.screenshot_path + "\\" + shottime + casename + ".png"
+            driver.get_screenshot_as_file(picname)
+            print("运行失败,请查看图片:" + picname)
+            raise e
+
+    def test_f_edit_inside_apply(self):
+        u"""启动内部审批"""
+        driver, wait = self.driver, self.wait
+        casename = sys._getframe().f_code.co_name
+        print("开始申请内部审批")
+        print("使用的贷款单号是:" + MyTestCase.loanNo)
+        try:
+            # 切换到内审页面
+            menu.go_to_inside_approve(driver)
+            handle1 = driver.current_window_handle
+            # print(handle1, handle1.title())
+            driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+            handles = driver.window_handles
+            handle2 = ""
+            for handle in handles:
+                if handle != handle1:
+                    driver.switch_to.window(handle)
+                    handle2 = driver.current_window_handle
+                    # print(handle2, handle2.title())
+            time.sleep(2)
+            driver.find_element_by_xpath("//a[text()='编辑内审信息']").click()
+            # 切换到内审信息编辑窗口
+            handles = driver.window_handles
+            for handle in handles:
+                if handle != handle1 and handle != handle2:
+                    driver.switch_to.window(handle)
+                    # handle3 = driver.current_window_handle
+                    # print(handle3, handle3.title())
+            # 编辑借款人基本信息
+            driver.find_element_by_xpath("//a[text()=' 编辑 ']").click()
+            time.sleep(1)
+            el = driver.find_element_by_name("issuing_authority")
+            el.clear()
+            el.send_keys("公安局")
+            el = driver.find_element_by_name("home_phone")
+            el.clear()
+            el.send_keys(MyTestCase.phoneNo)
+            el = driver.find_element_by_name("wechat")
+            el.clear()
+            el.send_keys(MyTestCase.phoneNo)
+            el = driver.find_element_by_name("postcode")
+            el.clear()
+            el.send_keys("518000")
+            select = Select(driver.find_element_by_id("select_provinceId_1"))
+            select.select_by_visible_text("北京")
+            select = Select(driver.find_element_by_id("select_areaId_1"))
+            select.select_by_visible_text("东城区")
+            el = driver.find_element_by_name("permanent_residence")
+            el.clear()
+            el.send_keys("无名路")
+            select = Select(driver.find_element_by_id("select_provinceId_2"))
+            select.select_by_visible_text("北京")
+            select = Select(driver.find_element_by_id("select_areaId_2"))
+            select.select_by_visible_text("东城区")
+            el = driver.find_element_by_name("recipient_address")
+            el.clear()
+            el.send_keys("无名路")
+            el = driver.find_element_by_name("live_years")
+            el.clear()
+            el.send_keys("1")
+            el = driver.find_element_by_css_selector(
+                "textarea.tabInp.action-valid-field[data-action-valid-msg-reg='子女情况不能超过1000个字']")
+            el.clear()
+            el.send_keys("无")
+            driver.find_element_by_xpath("//button[text()='保存']").click()
+            driver.find_element_by_xpath("//button[text()='确认']").click()
+            time.sleep(1)
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//td[text()='借款人姓： ']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            # 添加2个紧急联系人
+            for i in range(2):
+                time.sleep(2)
+                # 点击紧急联系人的新增按钮
+                wait.until(
+                    EC.element_to_be_clickable((By.CSS_SELECTOR, "a[href*='/contactsInfo/update-index']")))
+                driver.find_element_by_css_selector("a[href*='/contactsInfo/update-index']").click()
+                # 输入紧急联系人的姓名
+                driver.find_element_by_name("contactsName").send_keys(MyTestCase.urgent_usernames[i])
+                # 输入紧急联系人的电话
+                driver.find_element_by_name("homePhone").send_keys(MyTestCase.urgent_userphones[i])
+                # 输入紧急联系人的地址
+                driver.find_element_by_name("address").send_keys(MyTestCase.urgent_useraddres)
+                # 选择与借款人关系
+                select = Select(driver.find_element_by_id("netPrice"))
+                select.select_by_visible_text("朋友")
+                # 点击保存按钮
+                driver.find_element_by_css_selector("div.clearfix.tac.mtb20>input").click()
+            time.sleep(1)
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//span[text()='与借款人关系']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            time.sleep(1)
+            # 编辑夫妻双方资产负债情况
+            driver.find_element_by_css_selector("a[href*='/tot_assets/tot_assets_op']").click()
+            el = driver.find_element_by_id("assetsPrice")
+            el.clear()
+            el.send_keys("10000")
+            el = driver.find_element_by_id("mjPrice")
+            el.clear()
+            el.send_keys("0")
+            el = driver.find_element_by_id("assetsPs")
+            el.clear()
+            el.send_keys("这里是资产信息描述")
+            el = driver.find_element_by_id("ps")
+            el.clear()
+            el.send_keys("这里是负债信息描述")
+            driver.find_element_by_css_selector("td[align='center']>input[value='保存']").click()
+            time.sleep(1)
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//span[text()='购入时间']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            time.sleep(1)
+            # 编辑经营主体信息
+            driver.find_element_by_css_selector("a[href*='/mainShopInfoRest/updatePage']").click()
+            el = driver.find_element_by_id("licenceName")
+            el.clear()
+            el.send_keys("营业执照A")
+            el = driver.find_element_by_id("blrNumber")
+            el.clear()
+            el.send_keys("yyzz0001")
+            select = Select(driver.find_element_by_name("organizationForm"))
+            select.select_by_visible_text("个体工商户")
+            select = Select(driver.find_element_by_id("select_shop_provinceId"))
+            select.select_by_visible_text("北京")
+            time.sleep(1)
+            select = Select(driver.find_element_by_id("select_shop_cityId"))
+            select.select_by_visible_text("东城区")
+            el = driver.find_element_by_id("shopaddress")
+            el.clear()
+            el.send_keys("东城路")
+            el = driver.find_element_by_id("shareholders")
+            el.clear()
+            el.send_keys("1")
+            # 选择注册时间
+            driver.find_element_by_id("stupdate").click()
+            driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+            driver.find_element_by_xpath("//td[text()='15']").click()
+            driver.switch_to.default_content()
+            el = driver.find_element_by_id("shoprent")
+            el.clear()
+            el.send_keys("100")
+            select = Select(driver.find_element_by_id("isAbnermal"))
+            select.select_by_visible_text("无")
+            select = Select(driver.find_element_by_name("isLoadname"))
+            select.select_by_visible_text("是")
+            el = driver.find_element_by_id("controllername")
+            el.clear()
+            el.send_keys(MyTestCase.fullname)
+            select = Select(driver.find_element_by_name("businessType"))
+            select.select_by_visible_text("一级批发")
+            select = Select(driver.find_element_by_name("vocation"))
+            select.select_by_visible_text("家电")
+            # 选择经营起始时间
+            driver.find_element_by_id("businesshours").click()
+            driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+            driver.find_element_by_xpath("//td[text()='15']").click()
+            driver.switch_to.default_content()
+            driver.find_element_by_css_selector("input[value='提交']").click()
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//td[text()=' 行业类别：']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            time.sleep(2)
+            # 编辑经营历史
+            wait.until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "a[href*='/management/td/rest/addPage']")))
+            driver.find_element_by_css_selector("a[href*='/management/td/rest/addPage']").click()
+            # 选择时间
+            driver.find_element_by_id("tdYear").click()
+            driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+            driver.find_element_by_css_selector("tr.MTitle+tr").click()
+            driver.switch_to.default_content()
+            driver.find_element_by_id("netPrice").send_keys("5000")
+            driver.find_element_by_id("fzTot").send_keys("0")
+            driver.find_element_by_id("yearmoney").send_keys("200000")
+            driver.find_element_by_css_selector("div.clearfix.tac.mtb20>input").click()
+            time.sleep(3)
+
+            # 编辑近6个月营业额情况
+            driver.find_element_by_css_selector("a[href*='/mainMonthInfoRest/updatePage']").click()
+            els = ['turnover1th', 'turnover2th', 'turnover3th', 'turnover4th', 'turnover5th', 'turnover6th']
+            for elm in els:
+                el = driver.find_element_by_id(elm)
+                el.clear()
+                el.send_keys("1")
+            driver.find_element_by_css_selector("input[value='提交']").click()
+
+            # 编辑经营状况
+            time.sleep(2)
+            driver.find_element_by_css_selector("a[href*='/managementInfo/update']").click()
+            els = ['personnel', 'monthPay', 'waterPay', 'otherPay', 'transport', 'capital', 'profit', 'pay',
+                   'collect',
+                   'liabilities', 'invest']
+            for elm in els:
+                el = driver.find_element_by_id(elm)
+                el.clear()
+                el.send_keys("1")
+            els = driver.find_elements_by_css_selector("input[value='YH']")
+            if not els[1].is_selected():
+                els[1].click()
+            driver.find_element_by_css_selector("div.clearfix.tac.mtb20>input[value='保存']").click()
+            time.sleep(2)
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//td[text()='经营信息未尽事项描述：']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            time.sleep(1)
+            # 新增门店信息
+            driver.find_element_by_css_selector("a[href*='/customer/shop/rest/addPagenew']").click()
+            select = Select(driver.find_element_by_name("propertytype"))
+            select.select_by_visible_text("租赁")
+            el = driver.find_element_by_id("manageps")
+            el.clear()
+            el.send_keys("这里是门店经营环境描述!!")
+            el = driver.find_element_by_id("telephone")
+            el.clear()
+            el.send_keys("5813932")
+            # 选择门店成立日期
+            driver.find_element_by_id("stupdate").click()
+            driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+            driver.find_element_by_xpath("//td[text()='15']").click()
+            driver.switch_to.default_content()
+            select = Select(driver.find_element_by_id("select_shop_provinceId"))
+            select.select_by_visible_text("北京")
+            time.sleep(1)
+            select = Select(driver.find_element_by_id("select_shop_cityId"))
+            select.select_by_visible_text("东城区")
+            el = driver.find_element_by_id("shopaddress")
+            el.clear()
+            el.send_keys("无名路")
+            el = driver.find_element_by_id("businessarea")
+            el.clear()
+            el.send_keys("50")
+            el = driver.find_element_by_id("shoprentyear")
+            el.clear()
+            el.send_keys("50000")
+            # 选择租赁合同起止日期
+            driver.find_element_by_id("shoprentstart").click()
+            driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+            driver.find_element_by_xpath("//td[text()='15']").click()
+            driver.switch_to.default_content()
+            # 选择租赁合同起止日期
+            driver.find_element_by_id("shoprentend").click()
+            driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+            driver.find_element_by_xpath("//td[text()='15']").click()
+            driver.switch_to.default_content()
+            el = driver.find_element_by_id("storeinvamount")
+            el.clear()
+            el.send_keys("50000")
+            select = Select(driver.find_element_by_name("newtype"))
+            select.select_by_visible_text("很新")
+            select = Select(driver.find_element_by_name("istype"))
+            select.select_by_visible_text("整齐")
+            el = driver.find_element_by_id("stockps")
+            el.clear()
+            el.send_keys("这里是存货效期描述!!")
+            driver.find_element_by_css_selector("input[value='提交']").click()
+            time.sleep(2)
+
+            # 编辑渠道数据
+            driver.find_element_by_css_selector("a[href$='type=addbk']").click()
+            el = driver.find_element_by_css_selector("textarea[placeholder='汉字，限200字内']")
+            el.clear()
+            el.send_keys("与渠道企业采购的产品:酒水")
+            el = driver.find_element_by_name("monthPrice")
+            el.clear()
+            el.send_keys("40000")
+            els = driver.find_elements_by_css_selector("input[value='保存']")
+            els[1].click()
+            time.sleep(2)
+
+            # 增加上游信息
+            driver.find_element_by_css_selector("a[href$='type=addsy']").click()
+            el = driver.find_element_by_name("supplier")
+            el.clear()
+            el.send_keys("茅台")
+            el = driver.find_element_by_name("cooperation")
+            el.clear()
+            el.send_keys("飞天茅台")
+            el = driver.find_element_by_name("purchase")
+            el.clear()
+            el.send_keys("70")
+            el = driver.find_element_by_name("period")
+            el.clear()
+            el.send_keys("30")
+            els = driver.find_elements_by_css_selector("input[value='保存']")
+            els[1].click()
+            time.sleep(1)
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//span[text()='下游客户']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            time.sleep(1)
+            # 增加主要销售产品
+            driver.find_element_by_css_selector("a[href$='type=addbkp']").click()
+            el = driver.find_element_by_css_selector("input[name='productName']")
+            el.clear()
+            el.send_keys("飞天茅台")
+            el = driver.find_element_by_name("brand")
+            el.clear()
+            el.send_keys("茅台")
+            el = driver.find_element_by_name("buyingPrice")
+            el.clear()
+            el.send_keys("1000")
+            el = driver.find_element_by_name("model")
+            el.clear()
+            el.send_keys("飞天茅台")
+            el = driver.find_element_by_name("sellingPrice")
+            el.clear()
+            el.send_keys("1500")
+            el = driver.find_element_by_name("lastMonthSales")
+            el.clear()
+            el.send_keys("30000")
+            els = driver.find_elements_by_css_selector("input[value='保存']")
+            els[1].click()
+            time.sleep(1)
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//td[text()='暗访内容：']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            time.sleep(1)
+            # 编辑贷款信息
+            select = Select(driver.find_element_by_id("loanTerm"))
+            select.select_by_visible_text("6个月")
+            select = Select(driver.find_element_by_id("repayMentway"))
+            select.select_by_visible_text("等额本息")
+            select = Select(driver.find_element_by_id("paymentType"))
+            select.select_by_visible_text("流动资金")
+            el = driver.find_element_by_id("eaMount")
+            el.clear()
+            el.send_keys("50000")
+            select = Select(driver.find_element_by_id("bankLoanName"))
+            select.select_by_visible_text("江西银行")
+            driver.find_element_by_name("referrerName").send_keys("李超")
+            time.sleep(1)
+            driver.find_element_by_id("suggest_row1").click()
+            select = Select(driver.find_element_by_name("guarAnteeWay"))
+            select.select_by_visible_text("其它方式")
+            driver.find_element_by_css_selector("input[value='保存']").click()
+            driver.find_element_by_xpath("//button[text()='确认']").click()
+            driver.close()
+
+            # 切换到内审详情页面
+            driver.switch_to.window(handle2)
+            time.sleep(1)
+            # 点击提交内审
+            driver.find_element_by_xpath("//a[text()='提交内审']").click()
+            time.sleep(1)
+            # 关闭内审详情页面
+            driver.close()
+            # 切换到内部审批页面
+            driver.switch_to.window(handle1)
+
+            # 刷新页面
+            driver.refresh()
+            # 检查点
+            checkpoint.edit_inside_apply_checkpoint(self, wait, driver, MyTestCase.loanNo)
+            print("申请内部审批结束")
+        except Exception as e:
+            shottime = tools.get_current_time()
+            picname = MyTestCase.screenshot_path + "\\" + shottime + casename + ".png"
+            driver.get_screenshot_as_file(picname)
+            print("运行失败,请查看图片:" + picname)
+            raise e
+
+    def test_g_inside_approve(self):
+        u"""审批内部审批流程"""
+
+        driver, wait = self.driver, self.wait
+        # actions = self.actions
+        casename = sys._getframe().f_code.co_name
+        # MyTestCase.loanNo = 'SK0027-BP-1711-00001'
+        print("开始审批内审流程")
+        print("使用的贷款单号是:" + MyTestCase.loanNo)
+        try:
+            # 进入待办查询页面
+            menu.go_to_wait_todo_query(driver)
+            # 输入贷款单号查询
+            driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+            driver.find_element_by_css_selector("input[name='queryAll']").click()
+            self.assertTrue(driver.find_element_by_css_selector("input[name='queryAll']").is_selected())
+            driver.find_element_by_css_selector("input[value='搜索']").click()
+            time.sleep(2)
+            # tools.page_down(driver)
+            for i in range(5):
+                wait.until(EC.element_to_be_clickable(
+                    (By.XPATH, "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a")))
+                # 点击审批流程中第一条记录
+                driver.find_element_by_xpath(
+                    "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a").click()
+                time.sleep(2)
+                print("第" + str(i + 1) + "轮审批")
+
+                # 拖动页面
+                target = driver.find_element_by_xpath("//td[text()='操作:']")
+                driver.execute_script("arguments[0].scrollIntoView();", target)
+                time.sleep(1)
+
+                # 输入审批意见
+                el = driver.find_element_by_xpath(
+                    "//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+                el.clear()
+                el.send_keys("OK")
+                # 点击通过按钮
+                driver.find_element_by_css_selector("input[value='通 过']").click()
+                # 点击确认按钮
+                driver.find_element_by_xpath("//button[text()='确认']").click()
+                time.sleep(5)
+
+            # 检查点
+            checkpoint.inside_approve_checkpoint(self, wait, driver, MyTestCase.loanNo)
+            print("审批内审流程结束")
+        except Exception as e:
+            shottime = tools.get_current_time()
+            picname = MyTestCase.screenshot_path + "\\" + shottime + casename + ".png"
+            driver.get_screenshot_as_file(picname)
+            print("运行失败,请查看图片:" + picname)
+            raise e
+
+    def test_h_charge_apply(self):
+        u"""启动收费流程"""
+        driver, wait = self.driver, self.wait
+        casename = sys._getframe().f_code.co_name
+        print("启动收费流程开始")
+        print("使用的贷款单号是:" + MyTestCase.loanNo)
+        try:
+            menu.go_to_charge_query(driver)
+            driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+            driver.find_element_by_xpath("//a[text()='启动流程']").click()
+            time.sleep(2)
+            # 检查点
+            checkpoint.charge_apply_checkpoint(self, driver, MyTestCase.loanNo)
+            print("启动收费流程结束")
+        except Exception as e:
+            shottime = tools.get_current_time()
+            picname = MyTestCase.screenshot_path + "\\" + shottime + casename + ".png"
+            driver.get_screenshot_as_file(picname)
+            print("运行失败,请查看图片:" + picname)
+            raise e
+
+    def test_i_charge_approve(self):
+        u"""审批收费流程"""
+        driver, wait = self.driver, self.wait
+        casename = sys._getframe().f_code.co_name
+        # MyTestCase.loanNo = 'SK0027-BP-1711-00001'
+        print("审批收费流程开始")
+        print("使用的贷款单号是:" + MyTestCase.loanNo)
+        try:
+            # 进入待办查询页面
+            menu.go_to_wait_todo_query(driver)
+            # 输入贷款单号查询
+            driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+            driver.find_element_by_css_selector("input[name='queryAll']").click()
+            self.assertTrue(driver.find_element_by_css_selector("input[name='queryAll']").is_selected())
+            driver.find_element_by_css_selector("input[value='搜索']").click()
+            tools.page_down(driver)
+
+            # 判断是否有审批流程
+            els = driver.find_elements_by_xpath("//td[contains(text(),'保证金管理费')]/preceding-sibling::td[3]/a")
+            # 第一轮审批
+            if len(els):
+                # 点击审批流程中第一条记录
+                els[0].click()
+                time.sleep(1)
+                # 拖动页面
+                target = driver.find_element_by_xpath("//td[text()='管理费费率:']")
+                driver.execute_script("arguments[0].scrollIntoView();", target)
+
+                # 输入付款人
+                el = driver.find_element_by_name("payName")
+                el.clear()
+                el.send_keys(MyTestCase.fullname)
+
+                # 付款时间
+                driver.find_element_by_id("submitDate").click()
+                driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+                driver.find_element_by_xpath("//td[text()='15']").click()
+                driver.switch_to.default_content()
+                # 点击保存按钮
+                driver.find_element_by_css_selector("input[value='保存']").click()
+                # 拖动页面
+                target = driver.find_element_by_xpath("//p[text()='上传打款凭证']")
+                driver.execute_script("arguments[0].scrollIntoView();", target)
+                # 上传打款凭证
+                driver.find_element_by_css_selector("input[name='file']").send_keys(MyTestCase.pic_name)
+                # 输入审批意见
+                el = driver.find_element_by_xpath("//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+                el.clear()
+                el.send_keys("OK")
+                # 点击通过按钮
+                driver.find_element_by_css_selector("input[value='通 过']").click()
+                # 点击确认按钮
+                driver.find_element_by_xpath("//button[text()='确认']").click()
+                time.sleep(5)
+
+                # 第二轮审批
+                # 判断是否有审批流程
+                els = driver.find_elements_by_xpath(
+                    "//td[contains(text(),'保证金管理费')]/preceding-sibling::td[3]")
+                if len(els):
+                    # 点击审批流程中第一条记录
+                    els[0].click()
+                    time.sleep(1)
+                    # 拖动页面
+                    target = driver.find_element_by_xpath("//th[text()='审核人']")
+                    driver.execute_script("arguments[0].scrollIntoView();", target)
+                    # 本次到款合计金额
+                    driver.find_element_by_id("reDaokuanTotal").send_keys("50000")
+                    driver.find_element_by_id("payDate").click()
+                    driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+                    driver.find_element_by_xpath("//td[text()='15']").click()
+                    driver.switch_to.default_content()
+                    # 实际收款账户
+                    select = Select(driver.find_element_by_id("skBankAccountBZJ"))
+                    select.select_by_index(1)
+                    driver.find_element_by_css_selector("input[value='保存']").click()
+                    # 拖动页面
+                    target = driver.find_element_by_xpath("//a[text()='补充附件']")
+                    driver.execute_script("arguments[0].scrollIntoView();", target)
+                    # 输入审批意见
+                    el = driver.find_element_by_xpath(
+                        "//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+                    el.clear()
+                    el.send_keys("OK")
+                    # 点击通过按钮
+                    driver.find_element_by_css_selector("input[value='通 过']").click()
+                    # 点击确认按钮
+                    driver.find_element_by_xpath("//button[text()='确认']").click()
+                    time.sleep(5)
+            # 检查点
+            checkpoint.charge_approve_checkpoint(self, wait, driver, MyTestCase.loanNo)
+            print("审批收费流程结束")
+        except Exception as e:
+            shottime = tools.get_current_time()
+            picname = MyTestCase.screenshot_path + "\\" + shottime + casename + ".png"
+            driver.get_screenshot_as_file(picname)
+            print("运行失败,请查看图片:" + picname)
+            raise e
+
+    def test_j_interview_apply(self):
+        u"""面签提报"""
+        driver, wait = self.driver, self.wait
+        casename = sys._getframe().f_code.co_name
+        print("申请面签提报开始")
+        print("使用的贷款单号是:" + MyTestCase.loanNo)
+        try:
+            # 进入到面签提报页面
+            menu.go_to_interview_report(driver)
+            time.sleep(1)
+            handle1 = driver.current_window_handle
+            print(handle1, handle1.title())
+            driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+            handles = driver.window_handles
+            for handle in handles:
+                if handle != handle1:
+                    driver.switch_to.window(handle)
+                    handle2 = driver.current_window_handle
+                    print(handle2, handle2.title())
+            time.sleep(2)
+            driver.find_element_by_xpath("//a[text()='编辑面签资料']").click()
+            select = Select(driver.find_element_by_name("contractFlag"))
+            select.select_by_visible_text("是")
+            driver.find_element_by_css_selector("input[value='保存']").click()
+            driver.find_element_by_xpath("//button[text()='确认']").click()
+            driver.find_element_by_css_selector("input[name='file']").send_keys(MyTestCase.pic_name)
+            time.sleep(2)
+            driver.find_element_by_css_selector("div.action-dialog-model-close").click()
+            time.sleep(1)
+            driver.find_element_by_xpath("//a[text()='面签申报']").click()
+
+            # 关闭申报详情页面
+            driver.close()
+            # 切换到内部审批页面
+            driver.switch_to.window(handle1)
+            # 刷新页面
+            driver.refresh()
+            # 检查点
+            checkpoint.interview_apply_checkpoint(self, wait, driver, MyTestCase.loanNo)
+            print("申请面签提报结束")
+        except Exception as e:
+            shottime = tools.get_current_time()
+            picname = MyTestCase.screenshot_path + "\\" + shottime + casename + ".png"
+            driver.get_screenshot_as_file(picname)
+            print("运行失败,请查看图片:" + picname)
+            raise e
+
+    def test_k_interview_approve(self):
+        u"""面签审批"""
+        driver, wait = self.driver, self.wait
+        casename = sys._getframe().f_code.co_name
+        # MyTestCase.loanNo = "SK0027-BP-1711-00001"
+        print("面签审批开始")
+        print("使用的贷款单号是:" + MyTestCase.loanNo)
+        try:
+            # 进入待办查询页面
+            menu.go_to_wait_todo_query(driver)
+            # 输入贷款单号查询
+            driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+            driver.find_element_by_css_selector("input[name='queryAll']").click()
+            self.assertTrue(driver.find_element_by_css_selector("input[name='queryAll']").is_selected())
+            driver.find_element_by_css_selector("input[value='搜索']").click()
+
+            # 第一轮审批
+            wait.until(EC.element_to_be_clickable(
+                (By.XPATH, "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a")))
+            driver.find_element_by_xpath(
+                "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a").click()
+            time.sleep(1)
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//th[text()='审核人']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            time.sleep(1)
+            # 输入审批意见
+            el = driver.find_element_by_xpath("//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+            el.clear()
+            el.send_keys("OK")
+            # 点击通过按钮
+            driver.find_element_by_css_selector("input[value='通 过']").click()
+            # 点击确认按钮
+            driver.find_element_by_xpath("//button[text()='确认']").click()
+            time.sleep(5)
+
+            # 第二轮审批
+            wait.until(EC.element_to_be_clickable(
+                (By.XPATH, "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a")))
+            # 判断是否有审批流程
+            driver.find_element_by_xpath(
+                "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a").click()
+            time.sleep(1)
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//p[text()='是否电核']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            time.sleep(1)
+            select = Select(driver.find_element_by_name("isPhoneCheck"))
+            select.select_by_visible_text("是")
+            driver.find_element_by_name("phoneCheckMessage").send_keys("OK")
+            driver.find_elements_by_css_selector("input[value='保存']")[0].click()
+            time.sleep(1)
+            select = Select(driver.find_element_by_name("isCheckMqCl"))
+            select.select_by_visible_text("是")
+            driver.find_elements_by_css_selector("input[value='保存']")[1].click()
+            time.sleep(1)
+            # 拖动页面
+            target = driver.find_element_by_xpath("//p[text()='确认附件是否上传齐全']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            # 输入审批意见
+            el = driver.find_element_by_xpath("//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+            el.clear()
+            el.send_keys("OK")
+            # 点击通过按钮
+            driver.find_element_by_css_selector("input[value='通 过']").click()
+            # 点击确认按钮
+            driver.find_element_by_xpath("//button[text()='确认']").click()
+            time.sleep(5)
+
+            # 第三轮审批
+            wait.until(EC.element_to_be_clickable(
+                (By.XPATH, "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a")))
+            # 判断是否有审批流程
+            driver.find_element_by_xpath(
+                "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a").click()
+            time.sleep(1)
+
+            # 拖动页面
+            target = driver.find_element_by_xpath("//span[text()='审核中']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            # 选择证件到期日
+            driver.find_element_by_id("loanDate").click()
+            driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+            driver.find_element_by_xpath("//td[text()='15']").click()
+            driver.switch_to.default_content()
+            driver.find_element_by_css_selector("input[value='保存银行放款数据']").click()
+            # 拖动页面
+            target = driver.find_element_by_css_selector("input[value='保存银行放款数据']")
+            driver.execute_script("arguments[0].scrollIntoView();", target)
+            time.sleep(1)
+            tools.create_huankuanjihua(MyTestCase.fullname)
+            # 导入还款计划
+            driver.find_element_by_css_selector("input[name='file']").send_keys(MyTestCase.file_name)
+            time.sleep(3)
+            # 输入审批意见
+            el = driver.find_element_by_xpath("//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+            el.clear()
+            el.send_keys("OK")
+            # 点击通过按钮
+            driver.find_element_by_css_selector("input[value='通 过']").click()
+            # 点击确认按钮
+            driver.find_element_by_xpath("//button[text()='确认']").click()
+            time.sleep(5)
+
+            # 检查点
+            checkpoint.interview_approve_checkpoint(self, wait, driver, MyTestCase.loanNo)
+            print("审批面签提报结束")
+        except Exception as e:
+            shottime = tools.get_current_time()
+            picname = MyTestCase.screenshot_path + "\\" + shottime + casename + ".png"
+            driver.get_screenshot_as_file(picname)
+            print("运行失败,请查看图片:" + picname)
+            raise e
+
+    if __name__ == '__main__':
+        unittest.main()

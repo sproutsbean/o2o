@@ -1,0 +1,4419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>o2o自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>o2o自动化测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-11-29 09:11:15</p>
+<p class='attribute'><strong>Duration:</strong> 0:37:08.865000</p>
+<p class='attribute'><strong>Status:</strong> Pass 75 Error 46</p>
+
+<p class='description'>o2o自动化测试用例运行结果如下:</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>Mainstream.test_changjia_gongxiang.MyTestCase</td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',10)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 开始创建征信
+身份证号码: 130621197606286732
+姓名: 鲍少
+产生的征信账号: O2OZX-1711-01996
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-01996
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: 申请贷款开始
+采用的身份证号: 130621197606286732
+产生的贷款单号是:SK0027-BP-1711-00001
+申请贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: 审批贷款开始
+使用的贷款单号是:SK0027-BP-1711-00001
+审批贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_f_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        pass</a>
+
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: 开始申请内部审批
+使用的贷款单号是:SK0027-BP-1711-00001
+申请内部审批结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_g_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        pass</a>
+
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: 开始审批内审流程
+使用的贷款单号是:SK0027-BP-1711-00001
+第1轮审批
+第2轮审批
+第3轮审批
+第4轮审批
+第5轮审批
+审批内审流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_h_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        pass</a>
+
+    <div id='div_pt1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.7: 启动收费流程开始
+使用的贷款单号是:SK0027-BP-1711-00001
+启动收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_i_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.8')" >
+        pass</a>
+
+    <div id='div_pt1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.8: 审批收费流程开始
+使用的贷款单号是:SK0027-BP-1711-00001
+审批收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_j_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.9')" >
+        pass</a>
+
+    <div id='div_pt1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.9: 申请面签提报开始
+使用的贷款单号是:SK0027-BP-1711-00001
+CDwindow-448bcc59-113f-40bc-bd76-a782ee6bb334 Cdwindow-448Bcc59-113F-40Bc-Bd76-A782Ee6Bb334
+CDwindow-bf68fd87-9f7d-4265-b58a-98d520823ecd Cdwindow-Bf68Fd87-9F7D-4265-B58A-98D520823Ecd
+申请面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_k_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.10')" >
+        pass</a>
+
+    <div id='div_pt1.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.10: 面签审批开始
+使用的贷款单号是:SK0027-BP-1711-00001
+审批面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>Mainstream.test_changjia_ziying.MyTestCase</td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',10)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 开始创建征信
+身份证号码: 340103197412284092
+姓名: 奚全佛
+产生的征信账号: O2OZX-1711-01997
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-01997
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
+        pass</a>
+
+    <div id='div_pt2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.3: 申请贷款开始
+采用的身份证号: 340103197412284092
+产生的贷款单号是:C380Z0073-BP-1711-00007
+申请贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.4')" >
+        pass</a>
+
+    <div id='div_pt2.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.4: 审批贷款开始
+使用的贷款单号是:C380Z0073-BP-1711-00007
+审批贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_e_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.5')" >
+        pass</a>
+
+    <div id='div_pt2.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.5: 开始申请内部审批
+使用的贷款单号是:C380Z0073-BP-1711-00007
+申请内部审批结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_f_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.6')" >
+        pass</a>
+
+    <div id='div_pt2.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.6: 开始审批内审流程
+使用的贷款单号是:C380Z0073-BP-1711-00007
+审批内审流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_g_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.7')" >
+        pass</a>
+
+    <div id='div_pt2.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.7: 启动收费流程开始
+使用的贷款单号是:C380Z0073-BP-1711-00007
+启动收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_h_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.8')" >
+        pass</a>
+
+    <div id='div_pt2.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.8: 审批收费流程开始
+使用的贷款单号是:C380Z0073-BP-1711-00007
+审批收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_i_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.9')" >
+        pass</a>
+
+    <div id='div_pt2.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.9: 申请面签提报开始
+使用的贷款单号是:C380Z0073-BP-1711-00007
+申请面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_j_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.10')" >
+        pass</a>
+
+    <div id='div_pt2.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.10: 面签审批开始
+使用的贷款单号是:C380Z0073-BP-1711-00007
+审批面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>Mainstream.test_jingxiaoshang_gongxiang.MyTestCase</td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',10)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: 开始创建征信
+身份证号码: 370405198211278138
+姓名: 韩干州
+产生的征信账号: O2OZX-1711-01998
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.2')" >
+        pass</a>
+
+    <div id='div_pt3.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-01998
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.3')" >
+        pass</a>
+
+    <div id='div_pt3.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.3: 申请贷款开始
+采用的身份证号: 370405198211278138
+产生的贷款单号是:SK0027-BP_JX-1711-00001
+申请贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.4')" >
+        pass</a>
+
+    <div id='div_pt3.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.4: 审批贷款开始
+使用的贷款单号是:SK0027-BP_JX-1711-00001
+审批贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_f_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.5')" >
+        pass</a>
+
+    <div id='div_pt3.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.5: 开始申请内部审批
+使用的贷款单号是:SK0027-BP_JX-1711-00001
+申请内部审批结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_g_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.6')" >
+        pass</a>
+
+    <div id='div_pt3.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.6: 开始审批内审流程
+使用的贷款单号是:SK0027-BP_JX-1711-00001
+第1轮审批
+第2轮审批
+第3轮审批
+第4轮审批
+第5轮审批
+审批内审流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_h_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.7')" >
+        pass</a>
+
+    <div id='div_pt3.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.7: 启动收费流程开始
+使用的贷款单号是:SK0027-BP_JX-1711-00001
+启动收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_i_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.8')" >
+        pass</a>
+
+    <div id='div_pt3.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.8: 审批收费流程开始
+使用的贷款单号是:SK0027-BP_JX-1711-00001
+审批收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_j_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.9')" >
+        pass</a>
+
+    <div id='div_pt3.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.9: 申请面签提报开始
+使用的贷款单号是:SK0027-BP_JX-1711-00001
+CDwindow-4fd5bdeb-dbb9-40f7-a9f1-233773a1c330 Cdwindow-4Fd5Bdeb-Dbb9-40F7-A9F1-233773A1C330
+CDwindow-f9a75e21-21a9-4259-99d7-917b99425002 Cdwindow-F9A75E21-21A9-4259-99D7-917B99425002
+申请面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_k_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.10')" >
+        pass</a>
+
+    <div id='div_pt3.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.10: 面签审批开始
+使用的贷款单号是:SK0027-BP_JX-1711-00001
+审批面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>Mainstream.test_jingxiaoshang_ziying.MyTestCase</td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',10)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 开始创建征信
+身份证号码: 210112199610286896
+姓名: 熊休
+产生的征信账号: O2OZX-1711-01999
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.2')" >
+        pass</a>
+
+    <div id='div_pt4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-01999
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.3')" >
+        pass</a>
+
+    <div id='div_pt4.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.3: 申请贷款开始
+采用的身份证号: 210112199610286896
+产生的贷款单号是:C380Z0073-BP_JX-1711-00004
+申请贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.4')" >
+        pass</a>
+
+    <div id='div_pt4.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.4: 审批贷款开始
+使用的贷款单号是:C380Z0073-BP_JX-1711-00004
+审批贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_e_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.5')" >
+        pass</a>
+
+    <div id='div_pt4.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.5: 开始申请内部审批
+使用的贷款单号是:C380Z0073-BP_JX-1711-00004
+申请内部审批结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_f_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.6')" >
+        pass</a>
+
+    <div id='div_pt4.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.6: 开始审批内审流程
+使用的贷款单号是:C380Z0073-BP_JX-1711-00004
+审批内审流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_g_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.7')" >
+        pass</a>
+
+    <div id='div_pt4.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.7: 启动收费流程开始
+使用的贷款单号是:C380Z0073-BP_JX-1711-00004
+启动收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_h_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.8')" >
+        pass</a>
+
+    <div id='div_pt4.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.8: 审批收费流程开始
+使用的贷款单号是:C380Z0073-BP_JX-1711-00004
+审批收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_i_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.9')" >
+        pass</a>
+
+    <div id='div_pt4.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.9: 申请面签提报开始
+使用的贷款单号是:C380Z0073-BP_JX-1711-00004
+申请面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_j_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.10')" >
+        pass</a>
+
+    <div id='div_pt4.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.10: 面签审批开始
+使用的贷款单号是:C380Z0073-BP_JX-1711-00004
+审批面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>Mainstream.test_shangchao_gongxiang.MyTestCase</td>
+    <td>10</td>
+    <td>2</td>
+    <td>0</td>
+    <td>8</td>
+    <td><a href="javascript:showClassDetail('c5',10)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: 开始创建征信
+身份证号码: 140724199212304112
+姓名: 孙巴
+产生的征信账号: O2OZX-1711-02000
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.2')" >
+        pass</a>
+
+    <div id='div_pt5.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-02000
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.3')" >
+        error</a>
+
+    <div id='div_ft5.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.3: 申请贷款开始
+采用的身份证号: 140724199212304112
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-29-39test_c_loan_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 152, in test_c_loan_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 125, in test_c_loan_apply
+    driver.find_element_by_xpath("//a[text()='选择征信报告']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='选择征信报告']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.4')" >
+        error</a>
+
+    <div id='div_ft5.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.4: 审批贷款开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-29-42test_d_loan_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 218, in test_d_loan_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 166, in test_d_loan_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_f_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.5')" >
+        error</a>
+
+    <div id='div_ft5.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.5: 开始申请内部审批
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-29-46test_f_edit_inside_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 594, in test_f_edit_inside_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 232, in test_f_edit_inside_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_g_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.6')" >
+        error</a>
+
+    <div id='div_ft5.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.6: 开始审批内审流程
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-29-49test_g_inside_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 654, in test_g_inside_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 609, in test_g_inside_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_h_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.7')" >
+        error</a>
+
+    <div id='div_ft5.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.7: 启动收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-29-53test_h_charge_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 677, in test_h_charge_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 665, in test_h_charge_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_i_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.8')" >
+        error</a>
+
+    <div id='div_ft5.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.8: 审批收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-29-56test_i_charge_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 783, in test_i_charge_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 691, in test_i_charge_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_j_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.9')" >
+        error</a>
+
+    <div id='div_ft5.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.9: 申请面签提报开始
+使用的贷款单号是:
+CDwindow-aab1146a-c82f-4d58-a492-fda87173a88b Cdwindow-Aab1146A-C82F-4D58-A492-Fda87173A88B
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-30-00test_j_interview_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 835, in test_j_interview_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 798, in test_j_interview_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_k_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.10')" >
+        error</a>
+
+    <div id='div_ft5.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.10: 面签审批开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-30-04test_k_interview_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 958, in test_k_interview_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_gongxiang.py", line 849, in test_k_interview_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>Mainstream.test_shangchao_ziying.MyTestCase</td>
+    <td>10</td>
+    <td>2</td>
+    <td>0</td>
+    <td>8</td>
+    <td><a href="javascript:showClassDetail('c6',10)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: 开始创建征信
+身份证号码: 321323197305109233
+姓名: 鲁育
+产生的征信账号: O2OZX-1711-02001
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.2')" >
+        pass</a>
+
+    <div id='div_pt6.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-02001
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.3')" >
+        error</a>
+
+    <div id='div_ft6.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.3: 申请贷款开始
+采用的身份证号: 321323197305109233
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shangchao_ziying/2017-11-29-09-31-06test_c_loan_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 144, in test_c_loan_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 117, in test_c_loan_apply
+    driver.find_element_by_xpath("//a[text()='选择征信报告']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='选择征信报告']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.4')" >
+        error</a>
+
+    <div id='div_ft6.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.4: 审批贷款开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shangchao_ziying/2017-11-29-09-31-09test_d_loan_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 209, in test_d_loan_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 157, in test_d_loan_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_e_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.5')" >
+        error</a>
+
+    <div id='div_ft6.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.5: 开始申请内部审批
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shangchao_ziying/2017-11-29-09-31-13test_e_edit_inside_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 586, in test_e_edit_inside_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 224, in test_e_edit_inside_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_f_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.6')" >
+        error</a>
+
+    <div id='div_ft6.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.6: 开始审批内审流程
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shangchao_ziying/2017-11-29-09-31-16test_f_inside_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 641, in test_f_inside_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 599, in test_f_inside_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_g_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.7')" >
+        error</a>
+
+    <div id='div_ft6.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.7: 启动收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shangchao_ziying/2017-11-29-09-31-20test_g_charge_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 663, in test_g_charge_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 651, in test_g_charge_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_h_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.8')" >
+        error</a>
+
+    <div id='div_ft6.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.8: 审批收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shangchao_ziying/2017-11-29-09-31-23test_h_charge_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 768, in test_h_charge_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 676, in test_h_charge_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_i_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.9')" >
+        error</a>
+
+    <div id='div_ft6.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.9: 申请面签提报开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shangchao_ziying/2017-11-29-09-31-27test_i_interview_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 819, in test_i_interview_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 782, in test_i_interview_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_j_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.10')" >
+        error</a>
+
+    <div id='div_ft6.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.10: 面签审批开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shangchao_ziying/2017-11-29-09-31-31test_j_interview_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 939, in test_j_interview_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shangchao_ziying.py", line 833, in test_j_interview_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>Mainstream.test_shuguo_gongxiang.MyTestCase</td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',10)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: 开始创建征信
+身份证号码: 440784198105234078
+姓名: 米刘
+产生的征信账号: O2OZX-1711-02002
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.2')" >
+        pass</a>
+
+    <div id='div_pt7.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-02002
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.3')" >
+        pass</a>
+
+    <div id='div_pt7.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.3: 申请贷款开始
+采用的身份证号: 440784198105234078
+产生的贷款单号是:SK0027-SG-1711-00001
+申请贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.4')" >
+        pass</a>
+
+    <div id='div_pt7.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.4: 审批贷款开始
+使用的贷款单号是:SK0027-SG-1711-00001
+审批贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_f_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.5')" >
+        pass</a>
+
+    <div id='div_pt7.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.5: 开始申请内部审批
+使用的贷款单号是:SK0027-SG-1711-00001
+申请内部审批结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_g_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.6')" >
+        pass</a>
+
+    <div id='div_pt7.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.6: 开始审批内审流程
+使用的贷款单号是:SK0027-SG-1711-00001
+第1轮审批
+第2轮审批
+第3轮审批
+第4轮审批
+第5轮审批
+审批内审流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_h_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.7')" >
+        pass</a>
+
+    <div id='div_pt7.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.7: 启动收费流程开始
+使用的贷款单号是:SK0027-SG-1711-00001
+启动收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_i_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.8')" >
+        pass</a>
+
+    <div id='div_pt7.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.8: 审批收费流程开始
+使用的贷款单号是:SK0027-SG-1711-00001
+审批收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_j_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.9')" >
+        pass</a>
+
+    <div id='div_pt7.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.9: 申请面签提报开始
+使用的贷款单号是:SK0027-SG-1711-00001
+CDwindow-4e72debe-5225-467c-bac5-c189bec9f327 Cdwindow-4E72Debe-5225-467C-Bac5-C189Bec9F327
+CDwindow-7286992b-193e-492f-8d1b-0df86a1d6020 Cdwindow-7286992B-193E-492F-8D1B-0Df86A1D6020
+申请面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_k_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.10')" >
+        pass</a>
+
+    <div id='div_pt7.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.10: 面签审批开始
+使用的贷款单号是:SK0027-SG-1711-00001
+审批面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>Mainstream.test_shuguo_ziying.MyTestCase</td>
+    <td>10</td>
+    <td>7</td>
+    <td>0</td>
+    <td>3</td>
+    <td><a href="javascript:showClassDetail('c8',10)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        pass</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: 开始创建征信
+身份证号码: 430105197905043611
+姓名: 奚树关
+产生的征信账号: O2OZX-1711-02003
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.2')" >
+        pass</a>
+
+    <div id='div_pt8.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-02003
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.3')" >
+        pass</a>
+
+    <div id='div_pt8.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.3: 申请贷款开始
+采用的身份证号: 430105197905043611
+产生的贷款单号是:C380Z0073-SG-1711-00001
+申请贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.4')" >
+        pass</a>
+
+    <div id='div_pt8.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.4: 审批贷款开始
+使用的贷款单号是:C380Z0073-SG-1711-00001
+审批贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_e_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.5')" >
+        pass</a>
+
+    <div id='div_pt8.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.5: 开始申请内部审批
+使用的贷款单号是:C380Z0073-SG-1711-00001
+申请内部审批结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_f_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.6')" >
+        pass</a>
+
+    <div id='div_pt8.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.6: 开始审批内审流程
+使用的贷款单号是:C380Z0073-SG-1711-00001
+审批内审流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_g_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.7')" >
+        pass</a>
+
+    <div id='div_pt8.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.7: 启动收费流程开始
+使用的贷款单号是:C380Z0073-SG-1711-00001
+启动收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_h_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.8')" >
+        error</a>
+
+    <div id='div_ft8.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.8: 审批收费流程开始
+使用的贷款单号是:C380Z0073-SG-1711-00001
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shuguo_ziying/2017-11-29-09-39-11test_h_charge_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shuguo_ziying.py", line 764, in test_h_charge_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shuguo_ziying.py", line 713, in test_h_charge_approve
+    driver.find_element_by_xpath("//button[text()='确认']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 501, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Element &lt;button class="action-dialog-model-btn action-dialog-model-close"&gt;...&lt;/button&gt; is not clickable at point (669, 364). Other element would receive the click: &lt;div class="action-dialog-info-body"&gt;...&lt;/div&gt;
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_i_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.9')" >
+        error</a>
+
+    <div id='div_ft8.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.9: 申请面签提报开始
+使用的贷款单号是:C380Z0073-SG-1711-00001
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shuguo_ziying/2017-11-29-09-39-16test_i_interview_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shuguo_ziying.py", line 815, in test_i_interview_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shuguo_ziying.py", line 778, in test_i_interview_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='C380Z0073-SG-1711-00001']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_j_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.10')" >
+        error</a>
+
+    <div id='div_ft8.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.10: 面签审批开始
+使用的贷款单号是:C380Z0073-SG-1711-00001
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_shuguo_ziying/2017-11-29-09-39-17test_j_interview_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shuguo_ziying.py", line 935, in test_j_interview_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_shuguo_ziying.py", line 830, in test_j_interview_approve
+    driver.find_element_by_css_selector("input[name='queryAll']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 501, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Element &lt;input type="checkbox" value="true" name="queryAll" checked="checked"&gt; is not clickable at point (891, 211). Other element would receive the click: &lt;div class="" style="display: block; width: 100%; height: 100%; background: rgb(0, 0, 0); position: fixed; top: 0px; left: 0px; z-index: 10002; opacity: 0.2;"&gt;&lt;/div&gt;
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>Mainstream.test_yancao_gongxiang.MyTestCase</td>
+    <td>10</td>
+    <td>2</td>
+    <td>0</td>
+    <td>8</td>
+    <td><a href="javascript:showClassDetail('c9',10)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        pass</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: 开始创建征信
+身份证号码: 37088119660328005X
+姓名: 狄平
+产生的征信账号: O2OZX-1711-02004
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt9.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.2')" >
+        pass</a>
+
+    <div id='div_pt9.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-02004
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.3')" >
+        error</a>
+
+    <div id='div_ft9.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.3: 申请贷款开始
+采用的身份证号: 37088119660328005X
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-40-18test_c_loan_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 152, in test_c_loan_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 125, in test_c_loan_apply
+    driver.find_element_by_xpath("//a[text()='选择征信报告']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='选择征信报告']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.4')" >
+        error</a>
+
+    <div id='div_ft9.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.4: 审批贷款开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-40-22test_d_loan_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 218, in test_d_loan_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 166, in test_d_loan_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_f_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.5')" >
+        error</a>
+
+    <div id='div_ft9.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.5: 开始申请内部审批
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-40-25test_f_edit_inside_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 533, in test_f_edit_inside_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 232, in test_f_edit_inside_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_g_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.6')" >
+        error</a>
+
+    <div id='div_ft9.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.6: 开始审批内审流程
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-40-28test_g_inside_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 593, in test_g_inside_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 548, in test_g_inside_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_h_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.7')" >
+        error</a>
+
+    <div id='div_ft9.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.7: 启动收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-40-32test_h_charge_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 616, in test_h_charge_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 604, in test_h_charge_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_i_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.8')" >
+        error</a>
+
+    <div id='div_ft9.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.8: 审批收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-40-35test_i_charge_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 722, in test_i_charge_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 630, in test_i_charge_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_j_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.9')" >
+        error</a>
+
+    <div id='div_ft9.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.9: 申请面签提报开始
+使用的贷款单号是:
+CDwindow-d6673ada-00d6-479c-bac2-f2be9607d27e Cdwindow-D6673Ada-00D6-479C-Bac2-F2Be9607D27E
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-40-40test_j_interview_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 774, in test_j_interview_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 737, in test_j_interview_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_k_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.10')" >
+        error</a>
+
+    <div id='div_ft9.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.10: 面签审批开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-40-43test_k_interview_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 897, in test_k_interview_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_gongxiang.py", line 788, in test_k_interview_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>Mainstream.test_yancao_ziying.MyTestCase</td>
+    <td>10</td>
+    <td>2</td>
+    <td>0</td>
+    <td>8</td>
+    <td><a href="javascript:showClassDetail('c10',10)">Detail</a></td>
+</tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
+        pass</a>
+
+    <div id='div_pt10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.1: 开始创建征信
+身份证号码: 45080419720824371X
+姓名: 滕初
+产生的征信账号: O2OZX-1711-02005
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt10.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.2')" >
+        pass</a>
+
+    <div id='div_pt10.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-02005
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.3')" >
+        error</a>
+
+    <div id='div_ft10.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.3: 申请贷款开始
+采用的身份证号: 45080419720824371X
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_yancao_ziying/2017-11-29-09-41-44test_c_loan_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 144, in test_c_loan_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 117, in test_c_loan_apply
+    driver.find_element_by_xpath("//a[text()='选择征信报告']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='选择征信报告']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.4')" >
+        error</a>
+
+    <div id='div_ft10.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.4: 审批贷款开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_yancao_ziying/2017-11-29-09-41-47test_d_loan_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 209, in test_d_loan_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 157, in test_d_loan_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_e_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.5')" >
+        error</a>
+
+    <div id='div_ft10.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.5: 开始申请内部审批
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_yancao_ziying/2017-11-29-09-41-51test_e_edit_inside_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 525, in test_e_edit_inside_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 224, in test_e_edit_inside_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_f_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.6')" >
+        error</a>
+
+    <div id='div_ft10.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.6: 开始审批内审流程
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_yancao_ziying/2017-11-29-09-41-54test_f_inside_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 580, in test_f_inside_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 538, in test_f_inside_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_g_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.7')" >
+        error</a>
+
+    <div id='div_ft10.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.7: 启动收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_yancao_ziying/2017-11-29-09-41-58test_g_charge_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 602, in test_g_charge_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 590, in test_g_charge_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_h_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.8')" >
+        error</a>
+
+    <div id='div_ft10.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.8: 审批收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_yancao_ziying/2017-11-29-09-42-01test_h_charge_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 707, in test_h_charge_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 615, in test_h_charge_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_i_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.9')" >
+        error</a>
+
+    <div id='div_ft10.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.9: 申请面签提报开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_yancao_ziying/2017-11-29-09-42-05test_i_interview_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 758, in test_i_interview_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 721, in test_i_interview_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_j_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.10')" >
+        error</a>
+
+    <div id='div_ft10.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.10: 面签审批开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\test_yancao_ziying/2017-11-29-09-42-09test_j_interview_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 878, in test_j_interview_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_yancao_ziying.py", line 772, in test_j_interview_approve
+    driver.find_element_by_css_selector("input[name='referCode']").send_keys(MyTestCase.loanNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 509, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name='referCode']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>Mainstream.test_zhongduandai_gongxiang.MyTestCase</td>
+    <td>11</td>
+    <td>0</td>
+    <td>0</td>
+    <td>11</td>
+    <td><a href="javascript:showClassDetail('c11',11)">Detail</a></td>
+</tr>
+
+<tr id='ft11.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.1')" >
+        error</a>
+
+    <div id='div_ft11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.1: 开始创建征信
+身份证号码: 230224197010261375
+姓名: 柏别窗
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\error.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 65, in test_a_zhengxin_apply
+    platform="江西", bank="江西银行")
+  File "D:\PycharmProjects\o2o\com\ea\common\zhengxin.py", line 137, in zhengxin_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\common\zhengxin.py", line 71, in zhengxin_apply
+    driver.find_element_by_css_selector("input[name='ltdName']+div&gt;div&gt;span").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 501, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementNotVisibleException: Message: element not visible
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.2')" >
+        error</a>
+
+    <div id='div_ft11.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.2: 审批征信开始
+审批时的征信账号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot\error.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 73, in test_b_zhengxin_approve
+    MyTestCase.screenshot_path, MyTestCase.pic_name)
+  File "D:\PycharmProjects\o2o\com\ea\common\zhengxin.py", line 223, in zhengxin_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\common\zhengxin.py", line 156, in zhengxin_approve
+    (By.XPATH, "//td[text()='" + zhengxingdanhao + "']/preceding-sibling::td[1]")))
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.3')" >
+        error</a>
+
+    <div id='div_ft11.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.3: 申请贷款开始
+采用的身份证号: 230224197010261375
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-42-47test_c_loan_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 146, in test_c_loan_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 86, in test_c_loan_apply
+    driver.find_element_by_id("idCard").send_keys(MyTestCase.cardNo)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 341, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"id","selector":"idCard"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.4')" >
+        error</a>
+
+    <div id='div_ft11.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.4: 审批贷款开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-43-00test_d_loan_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 218, in test_d_loan_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 165, in test_d_loan_approve
+    (By.XPATH, "//td[contains(text(),'征信准入')]/preceding-sibling::td[3]")))
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_e_caiwu_approve: 财务审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.5')" >
+        error</a>
+
+    <div id='div_ft11.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.5: 财务审批开始
+使用的贷款单号是:
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 271, in test_e_caiwu_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 237, in test_e_caiwu_approve
+    (By.XPATH, "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a")))
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_f_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.6')" >
+        error</a>
+
+    <div id='div_ft11.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.6: 开始申请内部审批
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-43-25test_f_edit_inside_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 643, in test_f_edit_inside_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 284, in test_f_edit_inside_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_g_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.7')" >
+        error</a>
+
+    <div id='div_ft11.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.7: 开始审批内审流程
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-43-39test_g_inside_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 701, in test_g_inside_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 664, in test_g_inside_approve
+    (By.XPATH, "//td[text()='" + MyTestCase.loanNo + "']/preceding-sibling::td[1]/a")))
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_h_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.8')" >
+        error</a>
+
+    <div id='div_ft11.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.8: 启动收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-43-43test_h_charge_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 723, in test_h_charge_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 711, in test_h_charge_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_i_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.9')" >
+        error</a>
+
+    <div id='div_ft11.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.9: 审批收费流程开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-43-56test_i_charge_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 828, in test_i_charge_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 792, in test_i_charge_approve
+    driver.find_element_by_id("reDaokuanTotal").send_keys("50000")
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 341, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"id","selector":"reDaokuanTotal"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_j_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.10')" >
+        error</a>
+
+    <div id='div_ft11.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.10: 申请面签提报开始
+使用的贷款单号是:
+CDwindow-99a127a9-1a0c-4205-ba58-57bef68e9bd5 Cdwindow-99A127A9-1A0C-4205-Ba58-57Bef68E9Bd5
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-44-01test_j_interview_apply.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 879, in test_j_interview_apply
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 842, in test_j_interview_apply
+    driver.find_element_by_xpath("//a[text()='" + MyTestCase.loanNo + "']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 855, in find_element
+    'value': value})['value']
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='']"}
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.11' class='none'>
+    <td class='errorCase'><div class='testcase'>test_k_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.11')" >
+        error</a>
+
+    <div id='div_ft11.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.11: 面签审批开始
+使用的贷款单号是:
+运行失败,请查看图片:D:\PycharmProjects\o2o\com\ea\screenshot/2017-11-29-09-44-01test_k_interview_approve.png
+Traceback (most recent call last):
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 1001, in test_k_interview_approve
+    raise e
+  File "D:\PycharmProjects\o2o\com\ea\cases\Mainstream\test_zhongduandai_gongxiang.py", line 893, in test_k_interview_approve
+    driver.find_element_by_css_selector("input[name='queryAll']").click()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 501, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Element &lt;input type="checkbox" value="true" name="queryAll" checked="checked"&gt; is not clickable at point (891, 211). Other element would receive the click: &lt;td width="40%" class="txtH"&gt;...&lt;/td&gt;
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 6.1.7601 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>Mainstream.test_zhongduandai_ziying.MyTestCase</td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c12',10)">Detail</a></td>
+</tr>
+
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_zhengxin_apply: 创建征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.1')" >
+        pass</a>
+
+    <div id='div_pt12.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.1: 开始创建征信
+身份证号码: 361100199208025856
+姓名: 禹运
+产生的征信账号: O2OZX-1711-02006
+创建征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b_zhengxin_approve: 审批征信</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.2')" >
+        pass</a>
+
+    <div id='div_pt12.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.2: 审批征信开始
+审批时的征信账号是:O2OZX-1711-02006
+审批征信结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_loan_apply: 申请贷款</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.3')" >
+        pass</a>
+
+    <div id='div_pt12.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.3: 申请贷款开始
+采用的身份证号: 361100199208025856
+产生的贷款单号是:C380Z0067-BK-1711-00002
+申请贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_d_loan_approve: 贷款审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.4')" >
+        pass</a>
+
+    <div id='div_pt12.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.4: 审批贷款开始
+使用的贷款单号是:C380Z0067-BK-1711-00002
+审批贷款结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_e_edit_inside_apply: 启动内部审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.5')" >
+        pass</a>
+
+    <div id='div_pt12.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.5: 开始申请内部审批
+使用的贷款单号是:C380Z0067-BK-1711-00002
+申请内部审批结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_f_inside_approve: 审批内部审批流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.6')" >
+        pass</a>
+
+    <div id='div_pt12.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.6: 开始审批内审流程
+使用的贷款单号是:C380Z0067-BK-1711-00002
+审批内审流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_g_charge_apply: 启动收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.7')" >
+        pass</a>
+
+    <div id='div_pt12.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.7: 启动收费流程开始
+使用的贷款单号是:C380Z0067-BK-1711-00002
+启动收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_h_charge_approve: 审批收费流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.8')" >
+        pass</a>
+
+    <div id='div_pt12.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.8: 审批收费流程开始
+使用的贷款单号是:C380Z0067-BK-1711-00002
+审批收费流程结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_i_interview_apply: 面签提报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.9')" >
+        pass</a>
+
+    <div id='div_pt12.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.9: 申请面签提报开始
+使用的贷款单号是:C380Z0067-BK-1711-00002
+申请面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_j_interview_approve: 面签审批</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.10')" >
+        pass</a>
+
+    <div id='div_pt12.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.10: 面签审批开始
+使用的贷款单号是:C380Z0067-BK-1711-00002
+审批面签提报结束
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>121</td>
+    <td>75</td>
+    <td>0</td>
+    <td>46</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

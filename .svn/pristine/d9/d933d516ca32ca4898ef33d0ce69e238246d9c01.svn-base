@@ -1,0 +1,151 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+""" 
+@author:user 
+@file: zhengxin_page.py 
+@time: 2017/12/06 
+"""
+from selenium.webdriver.common.by import By
+from com.ea.common.base_page import BasePage
+import time
+
+
+class CustomerInfoPage(BasePage):
+    apply_button_loc = (By.XPATH, "//a[text()='申请征信']")
+    idcard_loc = (By.ID, "idCard")
+    next_button_loc = (By.XPATH, "//input[@value='下一步']")
+    first_name_loc = (By.NAME, "customerFamilyName")
+    last_name_loc = (By.NAME, "customerGivenName")
+    english_name_loc = (By.NAME, "customerNamePinyin")
+    phoneno_loc = (By.ID, "mobileNumber")
+    cardno_date = (By.ID, "licenseExpirationDate")
+    commit_zhengxin_loc = (By.CSS_SELECTOR, "input[value='申请征信']")
+    backup_loc = (By.XPATH, "//a[text()=' 返回']")
+    frame_loc = (By.TAG_NAME, "iframe")
+    frame_date_loc = (By.XPATH, "//td[text()='15']")
+    confirm_commit_loc = (By.XPATH, "//button[text()='确认']")
+
+    def click_zhengxin_apply(self):
+        u"""点击申请征信按钮"""
+        self.find_element(*self.apply_button_loc).click()
+
+    def input_idcard(self, idcard):
+        u"""输入身份证号码"""
+        self.send_keys(self.idcard_loc, idcard)
+
+    def click_next_button(self):
+        u"""点击下一步按钮"""
+        self.find_element(*self.next_button_loc).click()
+
+    def input_first_name(self, first_name):
+        u"""输入姓"""
+        self.send_keys(self.first_name_loc, first_name)
+
+    def input_last_name(self, last_name):
+        u"""输入名"""
+        self.send_keys(self.last_name_loc, last_name)
+
+    def input_english_name(self, english_name):
+        u"""输入姓名的拼音"""
+        self.send_keys(self.english_name_loc, english_name)
+
+    def input_phoneno(self, phoneno):
+        u"""输入手机号码"""
+        self.send_keys(self.phoneno_loc, phoneno)
+
+    def input_cardno_date(self, date):
+        u"""点击证件到期日志"""
+        # self.click_date_time(self.cardno_date, self.frame_loc, self.frame_date_loc)
+        self.input_date_time(self.cardno_date, date)
+
+    def commit_zhengxin_apply(self):
+        u"""提交申请征信"""
+        self.find_element(*self.commit_zhengxin_loc).click()
+        time.sleep(1)
+
+    def click_backup(self):
+        u"""点击返回按钮"""
+        self.find_element(*self.backup_loc).click()
+
+    def click_confirm_commit(self):
+        u"""点击确认按钮"""
+        self.find_element(*self.confirm_commit_loc).click()
+        time.sleep(1)
+
+
+class ZhengxinBasePage(BasePage):
+    customer_type_loc = (By.NAME, "zxType")
+    credit_manager_loc = (By.NAME, "operatorName")
+    choose_manager_loc = (By.ID, "suggest_row1")
+    platform_loc = (By.NAME, "ltdName")
+    choose_platform_loc = (By.CSS_SELECTOR, "input[name='ltdName']+div>div>span")
+    bank_loc = (By.ID, "bankType")
+    save_button_loc = (By.CSS_SELECTOR, "input[value='保 存']")
+    page_down_loc = (By.XPATH, "//td[text()='经办平台：']")
+    put_idcard_pic_loc = (By.XPATH, "//td[text()='客户身份证复印件：']/following-sibling::td[1]/div/div/div/input")
+    put_handle_idcard_pic_loc = (By.XPATH, "//td[text()='客户手持授权书及身份证照片：']/following-sibling::td[1]/div/div/div/input")
+    put_zhengxin_pic_loc = (By.XPATH, "//td[text()='客户征信授权书：']/following-sibling::td[1]/div/div/div/input")
+    put_third_pic_loc = (By.XPATH, "//td[text()='客户第三方数据查询授权书：']/following-sibling::td[1]/div/div/div/input")
+    put_handle_third_pic_loc = (By.XPATH, "//td[text()='手持第三方征信授权书与身份证：']/following-sibling::td[1]/div/div/div/input")
+    start_zhengxin_loc = (By.XPATH, "//a[text()='启动流程']")
+
+    def get_zhengxindanhao(self, fullname):
+        fullname_loc = (By.XPATH, "//td[text()='" + fullname + "']/../td/a")
+        zhengxingdanhao = self.find_element(*fullname_loc).text
+        return zhengxingdanhao
+
+    def get_result(self, fullname):
+        result_loc = (By.XPATH, "//td[text()='" + fullname + "']/following-sibling::td[6]")
+        result = self.find_element(*result_loc).text
+        return result
+
+    def select_customer_type(self, customer_type):
+        u"""选择客户类型"""
+        self.select_widget(customer_type, *self.customer_type_loc)
+
+    def input_credit_manager(self, managername):
+        u"""输入信贷经理"""
+        self.send_keys(self.credit_manager_loc, managername)
+        self.find_element(*self.choose_manager_loc).click()
+
+    def input_platform(self, platform):
+        u"""输入经办平台"""
+        self.send_keys(self.platform_loc, platform)
+        self.find_element(*self.choose_platform_loc).click()
+
+    def select_banck(self, bank):
+        u"""选择征信银行"""
+        self.select_widget(bank, *self.bank_loc)
+
+    def click_save_btton(self):
+        u"""点击保存按钮"""
+        self.find_element(*self.save_button_loc).click()
+        time.sleep(1)
+
+    def page_down(self):
+        u"""拖动页面到最下面"""
+        self.script(*self.page_down_loc)
+
+    def put_idcard_pic(self, pic_path):
+        u"""上传客户身份证复印件"""
+        self.find_element(*self.put_idcard_pic_loc).send_keys(pic_path)
+
+    def put_handle_idcard_pic(self, pic_path):
+        u"""上传客户手持授权书及身份证照片"""
+        self.find_element(*self.put_handle_idcard_pic_loc).send_keys(pic_path)
+
+    def put_zhengxin_pic(self, pic_path):
+        u"""上传客户征信授权书"""
+        self.find_element(*self.put_zhengxin_pic_loc).send_keys(pic_path)
+
+    def put_third_pic(self, pic_path):
+        u"""上传客户第三方数据查询授权书"""
+        self.find_element(*self.put_third_pic_loc).send_keys(pic_path)
+
+    def put_handle_third_pic(self, pic_path):
+        u"""上传手持第三方征信授权书与身份证"""
+        self.find_element(*self.put_handle_third_pic_loc).send_keys(pic_path)
+
+    def start_zhengxin(self):
+        u"""启动征信流程"""
+        self.find_element(*self.start_zhengxin_loc).click()

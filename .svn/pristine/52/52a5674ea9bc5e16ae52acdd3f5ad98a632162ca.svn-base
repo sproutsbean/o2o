@@ -1,0 +1,150 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+""" 
+@author:user 
+@file: charge.py 
+@time: 2018/01/03 
+"""
+
+import time
+from com.ea.common import menu, tools, login
+
+
+def charge_apply(driver, loanno, screenshot_path, casename):
+    u"""启动收费流程"""
+    expect_result = "审核中"
+    # self.loanno = "SK0027-BK-1712-00012"
+    print("启动收费流程开始")
+    print("使用的贷款单号是:" + loanno)
+    try:
+        from com.ea.pages.charge_page import ChargePage
+        chargepage = ChargePage(driver)
+        menu.go_to_charge_query(driver)
+        chargepage.click_loan_no(loanno)
+        chargepage.click_start_flow()
+        time.sleep(2)
+        actual_result = chargepage.get_result(loanno)
+        assert actual_result == expect_result
+        print("启动收费流程结束")
+    except Exception as e:
+        tools.get_screenshot(driver, screenshot_path, casename)
+        raise e
+
+
+def charge_approve(driver, loanno, fullname, pic_path, screenshot_path, casename):
+    u"""审批收费流程"""
+    expect_result = "流程结束"
+    process_type = "保证金管理费"
+    pay_time = "2017-10-10"
+    approve_view = "OK"
+    daokuan_total = "50000"
+    pay_date = "2017-10-10"
+    # self.loanno = "SK0027-BK-1712-00012"
+    print("审批收费流程开始")
+    print("使用的贷款单号是:" + loanno)
+    try:
+        from com.ea.pages.todo_page import TodoPage, ApproveCharge
+        todopage = TodoPage(driver)
+        approvechaegepage = ApproveCharge(driver)
+        # 进入待办查询页面
+        menu.go_to_wait_todo_query(driver)
+        todopage.input_yewuno(loanno)
+        todopage.click_query_all()
+        todopage.click_search_button()
+        todopage.click_first_row(process_type)
+        approvechaegepage.scroll_to_payer()
+        approvechaegepage.input_payer(fullname)
+        approvechaegepage.input_pay_time(pay_time)
+        approvechaegepage.click_save_button()
+        time.sleep(1)
+        approvechaegepage.scroll_to_approve_view()
+        time.sleep(3)
+        approvechaegepage.input_print_voucher(pic_path)
+        time.sleep(1)
+        approvechaegepage.input_approve_view(approve_view)
+        approvechaegepage.click_tongguo_button()
+        approvechaegepage.click_confirm_button()
+        time.sleep(5)
+        todopage.click_first_row(process_type)
+        approvechaegepage.scroll_to_daokuan_total()
+        time.sleep(1)
+        approvechaegepage.input_daokuan_total(daokuan_total)
+        approvechaegepage.input_pay_date(pay_date)
+        approvechaegepage.select_collect_acount(1)
+        approvechaegepage.click_save_button()
+        approvechaegepage.scroll_to_approve_view()
+        approvechaegepage.input_approve_view(approve_view)
+        approvechaegepage.click_tongguo_button()
+        approvechaegepage.click_confirm_button()
+        time.sleep(5)
+        menu.go_to_charge_query(driver)
+        actual_result = approvechaegepage.get_result(loanno)
+        assert actual_result == expect_result
+        print("审批收费流程结束")
+    except Exception as e:
+        tools.get_screenshot(driver, screenshot_path, casename)
+        raise e
+
+
+def charge_approve_by_role(driver, loanno, fullname, pic_path, screenshot_path, casename):
+    u"""审批收费流程"""
+    expect_result = "流程结束"
+    process_type = "保证金管理费"
+    pay_time = "2017-10-10"
+    approve_view = "OK"
+    daokuan_total = "50000"
+    pay_date = "2017-10-10"
+    # self.loanno = "SK0027-BK-1712-00012"
+    print("审批收费流程开始")
+    print("使用的贷款单号是:" + loanno)
+    try:
+        approver_account = tools.get_approver_acount_by_yewuno(loanno, process_type)
+        login.login(driver, username=approver_account)
+        from com.ea.pages.todo_page import TodoPage, ApproveCharge
+        todopage = TodoPage(driver)
+        approvechaegepage = ApproveCharge(driver)
+        # 进入待办查询页面
+        menu.go_to_wait_todo_query(driver)
+        todopage.input_yewuno(loanno)
+        # todopage.click_query_all()
+        todopage.click_search_button()
+        todopage.click_first_row(process_type)
+        approvechaegepage.scroll_to_payer()
+        approvechaegepage.input_payer(fullname)
+        approvechaegepage.input_pay_time(pay_time)
+        approvechaegepage.click_save_button()
+        time.sleep(1)
+        approvechaegepage.scroll_to_approve_view()
+        time.sleep(3)
+        approvechaegepage.input_print_voucher(pic_path)
+        time.sleep(1)
+        approvechaegepage.input_approve_view(approve_view)
+        approvechaegepage.click_tongguo_button()
+        approvechaegepage.click_confirm_button()
+        driver.delete_all_cookies()
+        approver_account = tools.get_approver_acount_by_yewuno(loanno, process_type)
+        login.login(driver, username=approver_account)
+        # 进入待办查询页面
+        menu.go_to_wait_todo_query(driver)
+        todopage.input_yewuno(loanno)
+        # todopage.click_query_all()
+        todopage.click_search_button()
+        todopage.click_first_row(process_type)
+        approvechaegepage.scroll_to_daokuan_total()
+        time.sleep(1)
+        approvechaegepage.input_daokuan_total(daokuan_total)
+        approvechaegepage.input_pay_date(pay_date)
+        approvechaegepage.select_collect_acount(1)
+        approvechaegepage.click_save_button()
+        approvechaegepage.scroll_to_approve_view()
+        approvechaegepage.input_approve_view(approve_view)
+        approvechaegepage.click_tongguo_button()
+        approvechaegepage.click_confirm_button()
+        time.sleep(5)
+        menu.go_to_charge_query(driver)
+        actual_result = approvechaegepage.get_result(loanno)
+        assert actual_result == expect_result
+        print("审批收费流程结束")
+    except Exception as e:
+        tools.get_screenshot(driver, screenshot_path, casename)
+        raise e

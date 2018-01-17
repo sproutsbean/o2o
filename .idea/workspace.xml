@@ -1,0 +1,1194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="4614f47e-b307-4cc5-84c8-1c5779c014d1" name="Default" comment="loan-12694 修改自动化测试脚本">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/com/ea/common/chinese.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/ea/resource/hk_plan.xls" afterPath="$PROJECT_DIR$/com/ea/resource/hk_plan.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase Coverage Results" MODIFIED="1515485107919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_changjia_gongxiang_MyTestCase_test_l_loan_clear.coverage" NAME="Unittests for test_changjia_gongxiang.MyTestCase.test_l_loan_clear Coverage Results" MODIFIED="1514945428239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_in_test_login_py.coverage" NAME="Unittests in test_login.py Coverage Results" MODIFIED="1512955069070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$name.coverage" NAME="name Coverage Results" MODIFIED="1510557218618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/common/name" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_f_edit_inside_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_f_edit_inside_apply Coverage Results" MODIFIED="1513839031681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduandai_MyTestCase_test_zhengxin_apply.coverage" NAME="Unittests for test_zhongduandai.MyTestCase.test_zhengxin_apply Coverage Results" MODIFIED="1510748112110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_k_interview_approve.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_k_interview_approve Coverage Results" MODIFIED="1515656365365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduandai_ziying_MyTestCase.coverage" NAME="Unittests for test_zhongduandai_ziying.MyTestCase Coverage Results" MODIFIED="1512019441561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_in_test_login2_py.coverage" NAME="Unittests in test_login2.py Coverage Results" MODIFIED="1512465745600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_e_caiwu_approve.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_e_caiwu_approve Coverage Results" MODIFIED="1515486998933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase Coverage Results" MODIFIED="1515735228355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduandai_MyTestCase_test_zhengxin.coverage" NAME="Unittests for test_zhongduandai.MyTestCase.test_zhengxin Coverage Results" MODIFIED="1510729741676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_login_MyTestCase_test_zhengxin_approve.coverage" NAME="Unittests for test_login.MyTestCase.test_zhengxin_approve Coverage Results" MODIFIED="1512977897309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_jingxiaoshang_ziying_MyTestCase.coverage" NAME="Unittests for test_jingxiaoshang_ziying.MyTestCase Coverage Results" MODIFIED="1515744526839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_in_test_shuguo_gongxiang_py.coverage" NAME="Unittests in test_shuguo_gongxiang.py Coverage Results" MODIFIED="1512024808529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_i_charge_approve.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_i_charge_approve Coverage Results" MODIFIED="1513847600053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$tools.coverage" NAME="tools Coverage Results" MODIFIED="1515642187770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/common" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_changjia_gongxiang_MyTestCase_test_f_edit_inside_apply.coverage" NAME="Unittests for test_changjia_gongxiang.MyTestCase.test_f_edit_inside_apply Coverage Results" MODIFIED="1514513504631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_h_charge_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_h_charge_apply Coverage Results" MODIFIED="1515653133035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_login_MyTestCase_test_newzhengxin.coverage" NAME="Unittests for test_login.MyTestCase.test_newzhengxin Coverage Results" MODIFIED="1512983208962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_d_loan_approve.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_d_loan_approve Coverage Results" MODIFIED="1513562192524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_menu_check_MyTestCase_test_khgl_ppgl.coverage" NAME="Unittests for menu_check.MyTestCase.test_khgl_ppgl Coverage Results" MODIFIED="1515047680283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_ziying_MyTestCase_test_f_edit_inside_apply.coverage" NAME="Unittests for test_zhongduan_ziying.MyTestCase.test_f_edit_inside_apply Coverage Results" MODIFIED="1514268070059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/test_case" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduandai_MyTestCase_test_loan_apply.coverage" NAME="Unittests for test_zhongduandai.MyTestCase.test_loan_apply Coverage Results" MODIFIED="1510799137403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$selenium_mouse.coverage" NAME="selenium_mouse Coverage Results" MODIFIED="1512444783432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_i_charge_approve.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_i_charge_approve Coverage Results" MODIFIED="1515653816253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$run_all_case__2_.coverage" NAME="run_all_case (2) Coverage Results" MODIFIED="1510647939295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/test" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_changjia_gongxiang_MyTestCase_test_j_interview_apply.coverage" NAME="Unittests for test_changjia_gongxiang.MyTestCase.test_j_interview_apply Coverage Results" MODIFIED="1514945135415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$test_window.coverage" NAME="test_window Coverage Results" MODIFIED="1510643725909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/test/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_changjia_ziying_MyTestCase.coverage" NAME="Unittests for test_changjia_ziying.MyTestCase Coverage Results" MODIFIED="1515746468863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_login_MyTestCase_test_something.coverage" NAME="Unittests for test_login.MyTestCase.test_something Coverage Results" MODIFIED="1512464731259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_login_MyTestCase.coverage" NAME="Unittests for test_login.MyTestCase Coverage Results" MODIFIED="1512554234884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_c_loan_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_c_loan_apply Coverage Results" MODIFIED="1515480978588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_j_interview_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_j_interview_apply Coverage Results" MODIFIED="1515659982482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_changjia_gongxiang_MyTestCase_test.coverage" NAME="Unittests for test_changjia_gongxiang.MyTestCase.test Coverage Results" MODIFIED="1514972356823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_shangchao_gongxiang_MyTestCase.coverage" NAME="Unittests for test_shangchao_gongxiang.MyTestCase Coverage Results" MODIFIED="1515742940107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$test_login.coverage" NAME="test_login Coverage Results" MODIFIED="1512464343780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_h_charge_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_h_charge_apply Coverage Results" MODIFIED="1513842555603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_a_zhengxin_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_a_zhengxin_apply Coverage Results" MODIFIED="1514252348561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_shangchao_gongxiang_MyTestCase_test_f_edit_inside_apply.coverage" NAME="Unittests for test_shangchao_gongxiang.MyTestCase.test_f_edit_inside_apply Coverage Results" MODIFIED="1514526773511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_changjia_gongxiang_MyTestCase.coverage" NAME="Unittests for test_changjia_gongxiang.MyTestCase Coverage Results" MODIFIED="1516064084165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_g_approve_inside.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_g_approve_inside Coverage Results" MODIFIED="1515670514666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_j_interview_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_j_interview_apply Coverage Results" MODIFIED="1513936021956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_ziying_MyTestCase.coverage" NAME="Unittests for test_zhongduan_ziying.MyTestCase Coverage Results" MODIFIED="1515736597926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_01_Test_test03.coverage" NAME="Unittests for test_01.Test.test03 Coverage Results" MODIFIED="1510724342164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_ziying_MyTestCase_test_cookies.coverage" NAME="Unittests for test_zhongduan_ziying.MyTestCase.test_cookies Coverage Results" MODIFIED="1515727605861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$todo_page.coverage" NAME="todo_page Coverage Results" MODIFIED="1514173759930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/pages" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_login2_MyTestCase.coverage" NAME="Unittests for test_login2.MyTestCase Coverage Results" MODIFIED="1512469244576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_menu_check_MyTestCase.coverage" NAME="Unittests for menu_check.MyTestCase Coverage Results" MODIFIED="1515123642158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_jingxiaoshang_gongxiang_MyTestCase.coverage" NAME="Unittests for test_jingxiaoshang_gongxiang.MyTestCase Coverage Results" MODIFIED="1515745040850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_test.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_test Coverage Results" MODIFIED="1515651122415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_01_Test_test01.coverage" NAME="Unittests for test_01.Test.test01 Coverage Results" MODIFIED="1510729719339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_f_edit_inside_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_f_edit_inside_apply Coverage Results" MODIFIED="1515487255490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_k_interview_approve.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_k_interview_approve Coverage Results" MODIFIED="1514182469704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduandai_MyTestCase_test_loan_approve.coverage" NAME="Unittests for test_zhongduandai.MyTestCase.test_loan_approve Coverage Results" MODIFIED="1510801176086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_shuguo_ziying_MyTestCase.coverage" NAME="Unittests for test_shuguo_ziying.MyTestCase Coverage Results" MODIFIED="1515742163940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_yancao_gongxiang_MyTestCase_test_f_edit_inside_apply.coverage" NAME="Unittests for test_yancao_gongxiang.MyTestCase.test_f_edit_inside_apply Coverage Results" MODIFIED="1514270363463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/test_case" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_ddt_MyTestCase.coverage" NAME="Unittests for test_ddt.MyTestCase Coverage Results" MODIFIED="1515749358348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_shuguo_gongxiang_MyTestCase_test_f_edit_inside_apply.coverage" NAME="Unittests for test_shuguo_gongxiang.MyTestCase.test_f_edit_inside_apply Coverage Results" MODIFIED="1514280308435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/test_case" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_yancao_ziying_MyTestCase.coverage" NAME="Unittests for test_yancao_ziying.MyTestCase Coverage Results" MODIFIED="1515738599666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_in_test_jingxiaoshang_ziying_py.coverage" NAME="Unittests in test_jingxiaoshang_ziying.py Coverage Results" MODIFIED="1512030721724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_in_test_changjia_gongxiang_py.coverage" NAME="Unittests in test_changjia_gongxiang.py Coverage Results" MODIFIED="1512357317823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_login_MyTestCase_test_zhengxin_apply.coverage" NAME="Unittests for test_login.MyTestCase.test_zhengxin_apply Coverage Results" MODIFIED="1512959603867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_changjia_gongxiang_MyTestCase_test_k_interview_approve.coverage" NAME="Unittests for test_changjia_gongxiang.MyTestCase.test_k_interview_approve Coverage Results" MODIFIED="1514945345939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$run_all_case.coverage" NAME="run_all_case Coverage Results" MODIFIED="1513754181503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduandai_MyTestCase_test_zhengxin_approve.coverage" NAME="Unittests for test_zhongduandai.MyTestCase.test_zhengxin_approve Coverage Results" MODIFIED="1510744012932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_in_test_zdd_py.coverage" NAME="Unittests in test_zdd.py Coverage Results" MODIFIED="1510651661606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/test/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$run_all_case__1_.coverage" NAME="run_all_case (1) Coverage Results" MODIFIED="1510726706350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_changjia_gongxiang_MyTestCase_test_m_loan_clear_approve.coverage" NAME="Unittests for test_changjia_gongxiang.MyTestCase.test_m_loan_clear_approve Coverage Results" MODIFIED="1514945455606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_b_zhengxin_approve.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_b_zhengxin_approve Coverage Results" MODIFIED="1515477140002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_01_Test.coverage" NAME="Unittests for test_01.Test Coverage Results" MODIFIED="1510724426963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_login2_MyTestCase_test_a_zhengxin_apply.coverage" NAME="Unittests for test_login2.MyTestCase.test_a_zhengxin_apply Coverage Results" MODIFIED="1512466465392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$atest_window.coverage" NAME="atest_window Coverage Results" MODIFIED="1510715250324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$globalparameter.coverage" NAME="globalparameter Coverage Results" MODIFIED="1512455585431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/resource" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduandai_gongxiang_MyTestCase.coverage" NAME="Unittests for test_zhongduandai_gongxiang.MyTestCase Coverage Results" MODIFIED="1513736377828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zdd_MyTestCase.coverage" NAME="Unittests for test_zdd.MyTestCase Coverage Results" MODIFIED="1510708303959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/test/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$mysql_demo.coverage" NAME="mysql_demo Coverage Results" MODIFIED="1515382494181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_shuguo_gongxiang_MyTestCase.coverage" NAME="Unittests for test_shuguo_gongxiang.MyTestCase Coverage Results" MODIFIED="1515740862781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_e_caiwu_approve.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_e_caiwu_approve Coverage Results" MODIFIED="1513565117299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_a_zhengxin_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_a_zhengxin_apply Coverage Results" MODIFIED="1515467323097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$IdCardNumber.coverage" NAME="IdCardNumber Coverage Results" MODIFIED="1510550998275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/common/cardnumber" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_ziying_MyTestCase_test_c_loan_apply.coverage" NAME="Unittests for test_zhongduan_ziying.MyTestCase.test_c_loan_apply Coverage Results" MODIFIED="1514267893609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/test_case" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_in_zhongduan_py.coverage" NAME="Unittests in test_zhongduan.py Coverage Results" MODIFIED="1510647619858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/test/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_menu_check_MyTestCase_test_czzy_cwgl.coverage" NAME="Unittests for menu_check.MyTestCase.test_czzy_cwgl Coverage Results" MODIFIED="1515123620179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_in_test_shangchao_ziying_py.coverage" NAME="Unittests in test_shangchao_ziying.py Coverage Results" MODIFIED="1512026591439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$base_page.coverage" NAME="base_page Coverage Results" MODIFIED="1512458103670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/common" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang2_MyTestCase_test_d_loan_approve.coverage" NAME="Unittests for test_zhongduan_gongxiang2.MyTestCase.test_d_loan_approve Coverage Results" MODIFIED="1515483408761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_shangchao_ziying_MyTestCase.coverage" NAME="Unittests for test_shangchao_ziying.MyTestCase Coverage Results" MODIFIED="1515743881672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_login2_MyTestCase_test_b.coverage" NAME="Unittests for test_login2.MyTestCase.test_b Coverage Results" MODIFIED="1512466393332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_changjia_gongxiang_MyTestCase_test_a_zhengxin_apply.coverage" NAME="Unittests for test_changjia_gongxiang.MyTestCase.test_a_zhengxin_apply Coverage Results" MODIFIED="1512465038276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_g_approve_inside.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_g_approve_inside Coverage Results" MODIFIED="1513840852370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduandai_MyTestCase.coverage" NAME="Unittests for test_zhongduandai.MyTestCase Coverage Results" MODIFIED="1510750116400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$chinese.coverage" NAME="chinese Coverage Results" MODIFIED="1516157310092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/common" />
+    <SUITE FILE_PATH="coverage/o2o$test.coverage" NAME="test Coverage Results" MODIFIED="1515028575604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_yancao_gongxiang_MyTestCase.coverage" NAME="Unittests for test_yancao_gongxiang.MyTestCase Coverage Results" MODIFIED="1515739490197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_zhongduan_MyTestCase_test_zhengxin.coverage" NAME="Unittests for zhongduan.MyTestCase.test_zhengxin Coverage Results" MODIFIED="1510644026397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/test/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_ziying_MyTestCase_test_d_loan_approve.coverage" NAME="Unittests for test_zhongduan_ziying.MyTestCase.test_d_loan_approve Coverage Results" MODIFIED="1514267958299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/test_case" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_in_test_zhongduandai_py.coverage" NAME="Unittests in test_zhongduandai.py Coverage Results" MODIFIED="1510749451115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+    <SUITE FILE_PATH="coverage/o2o$Unittests_for_test_zhongduan_gongxiang_MyTestCase_test_c_loan_apply.coverage" NAME="Unittests for test_zhongduan_gongxiang.MyTestCase.test_c_loan_apply Coverage Results" MODIFIED="1514183871722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/com/ea/cases" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="test_changjia_gongxiang.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/ea/cases/Mainstream/test_changjia_gongxiang.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="608">
+              <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_zhongduan_gongxiang_yuexi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_gongxiang_yuexi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="117" column="66" lean-forward="true" selection-start-line="117" selection-start-column="66" selection-end-line="117" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chinese.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/com/ea/common/chinese.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Unit Test" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>click_datetim</find>
+      <find>pic</find>
+      <find>iframe</find>
+      <find>tools</find>
+      <find>script</find>
+      <find>script(self</find>
+      <find>*</find>
+      <find>send_keys</find>
+      <find>a[href$='type=addbk']</find>
+      <find>addc</find>
+      <find>two</find>
+      <find>zy_</find>
+      <find>scroll</find>
+      <find>save</find>
+      <find>confirm</find>
+      <find>commit</find>
+      <find>click_date_time</find>
+      <find>paymentTime</find>
+      <find>input_year</find>
+      <find>loanNo</find>
+      <find>shoprent_starttime</find>
+      <find>'''</find>
+      <find>input_</find>
+      <find>test_dkgl_dkcx</find>
+      <find>test_dhgl_dcfkcx</find>
+      <find>操作记录查询</find>
+      <find>jigouguanli</find>
+      <find>保 存</find>
+      <find>referCode</find>
+      <find>审批管理</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>loanno</replace>
+      <replace>&quot;&quot;&quot;</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_ziying.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_gongxiang.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_gongxiang.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_ziying.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_gongxiang.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_ziying.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_ziying.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_gongxiang.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_ziying.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_gongxiang.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_ziying.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_ddt.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_gongxiang_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_ziying_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_gongxiang_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_ziying_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_gongxiang_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_ziying_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_gongxiang_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_ziying_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_gongxiang_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_ziying_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_gongxiang_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_ziying_chongqing.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_gongxiang_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_ziying_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_gongxiang_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_ziying_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_gongxiang_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_ziying_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_gongxiang_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_ziying_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_gongxiang_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_ziying_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_gongxiang_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_ziying_yuedong.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_gongxiang_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_ziying_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_gongxiang_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_ziying_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_gongxiang_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_ziying_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_gongxiang_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_ziying_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_gongxiang_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_ziying_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_gongxiang_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_ziying_yuexi.py" />
+        <option value="$PROJECT_DIR$/com/ea/cases/debug.log" />
+        <option value="$PROJECT_DIR$/com/ea/cases/Mainstream/test_changjia_gongxiang.py" />
+        <option value="$PROJECT_DIR$/com/ea/common/chinese.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="1400" />
+    <option name="height" value="992" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Django</id>
+          </State>
+          <State>
+            <id>ECMAScript 6 migration aidsJavaScript</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>AngularJS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="o2o" type="b2602c69:ProjectViewProjectNode" />
+              <item name="o2o" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="o2o" type="b2602c69:ProjectViewProjectNode" />
+              <item name="o2o" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="o2o" type="b2602c69:ProjectViewProjectNode" />
+              <item name="o2o" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="o2o" type="b2602c69:ProjectViewProjectNode" />
+              <item name="o2o" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ea" type="462c0819:PsiDirectoryNode" />
+              <item name="cases" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="o2o" type="b2602c69:ProjectViewProjectNode" />
+              <item name="o2o" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ea" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="o2o" type="b2602c69:ProjectViewProjectNode" />
+              <item name="o2o" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ea" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="F:/Tencent" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="o2o" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="o2o" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PycharmProjects\o2o\com\ea\cases\ApproveByRole" />
+      <recent name="D:\PycharmProjects\o2o\com\ea\cases\test_case" />
+      <recent name="D:\PycharmProjects\o2o\com\ea\cases\Mainstream" />
+      <recent name="D:\PycharmProjects\o2o\com\ea\common\name" />
+      <recent name="D:\PycharmProjects\o2o\com\ea" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PycharmProjects\o2o\com\ea\cases\ApproveByRole" />
+      <recent name="D:\PycharmProjects\o2o\com\ea\cases" />
+      <recent name="D:\PycharmProjects\o2o\com\ea\cases\test_case" />
+      <recent name="D:\PycharmProjects\o2o\com\ea\cases\Mainstream" />
+      <recent name="D:\PycharmProjects\o2o\com\ea\resource" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.chinese">
+    <configuration name="Unittests for com.ea.cases.ApproveByRole.test_changjia_gongxiang_shandong.MyTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="o2o" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;com.ea.cases.ApproveByRole.test_changjia_gongxiang_shandong.MyTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for com.ea.cases.ApproveByRole.test_changjia_ziying_shandong.MyTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="o2o" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;com.ea.cases.ApproveByRole.test_changjia_ziying_shandong.MyTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for com.ea.cases.ApproveByRole.test_jingxiaoshang_ziying_shandong.MyTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="o2o" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;com.ea.cases.ApproveByRole.test_jingxiaoshang_ziying_shandong.MyTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for test_changjia_gongxiang.MyTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/com/ea/cases/Mainstream" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="o2o" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_changjia_gongxiang.MyTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for test_ddt.MyTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/com/ea/cases/ApproveByRole" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="o2o" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_ddt.MyTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="chinese" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/com/ea/common" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="o2o" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/com/ea/common/chinese.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests for com.ea.cases.ApproveByRole.test_changjia_ziying_shandong.MyTestCase" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for com.ea.cases.ApproveByRole.test_changjia_gongxiang_shandong.MyTestCase" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for test_ddt.MyTestCase" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for test_changjia_gongxiang.MyTestCase" />
+      <item index="4" class="java.lang.String" itemvalue="Python.chinese" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.chinese" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for test_changjia_gongxiang.MyTestCase" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for test_ddt.MyTestCase" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for com.ea.cases.ApproveByRole.test_changjia_gongxiang_shandong.MyTestCase" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for com.ea.cases.ApproveByRole.test_changjia_ziying_shandong.MyTestCase" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\user\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\PycharmProjects\o2o" />
+          <option name="myCopyRoot" value="D:\PycharmProjects\o2o" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\PycharmProjects\o2o" />
+          <option name="myCopyRoot" value="D:\PycharmProjects\o2o" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4614f47e-b307-4cc5-84c8-1c5779c014d1" name="Default" comment="" />
+      <created>1510112607696</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1510112607696</updated>
+    </task>
+    <task id="LOCAL-00001" summary="loan-12694 修改自动化测试脚本">
+      <created>1512019017289</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1512019017289</updated>
+    </task>
+    <task id="LOCAL-00002" summary="loan-12694 修改自动化测试脚本">
+      <created>1512020953862</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1512020953862</updated>
+    </task>
+    <task id="LOCAL-00003" summary="loan-12694 修改自动化测试脚本">
+      <created>1512025034954</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1512025034954</updated>
+    </task>
+    <task id="LOCAL-00004" summary="loan-12694 修改自动化测试脚本">
+      <created>1512090790272</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1512090790272</updated>
+    </task>
+    <task id="LOCAL-00005" summary="loan-12694 修改自动化测试脚本">
+      <created>1512090797537</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1512090797537</updated>
+    </task>
+    <task id="LOCAL-00006" summary="loan-12694 修改自动化测试脚本">
+      <created>1512444877757</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1512444877757</updated>
+    </task>
+    <task id="LOCAL-00007" summary="loan-12694 修改自动化测试脚本">
+      <created>1512444890587</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1512444890587</updated>
+    </task>
+    <task id="LOCAL-00008" summary="loan-12694 修改自动化测试脚本">
+      <created>1512444914155</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1512444914155</updated>
+    </task>
+    <task id="LOCAL-00009" summary="loan-12694 修改自动化测试脚本">
+      <created>1512465224419</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1512465224419</updated>
+    </task>
+    <task id="LOCAL-00010" summary="loan-12694 修改自动化测试脚本">
+      <created>1512526615053</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1512526615053</updated>
+    </task>
+    <task id="LOCAL-00011" summary="loan-12694 修改自动化测试脚本">
+      <created>1512540634871</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1512540634871</updated>
+    </task>
+    <task id="LOCAL-00012" summary="loan-12694 修改自动化测试脚本">
+      <created>1513914340596</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1513914340596</updated>
+    </task>
+    <task id="LOCAL-00013" summary="loan-12694 修改自动化测试脚本">
+      <created>1514166850985</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1514166850985</updated>
+    </task>
+    <task id="LOCAL-00014" summary="loan-12694 修改自动化测试脚本">
+      <created>1514166902402</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1514166902402</updated>
+    </task>
+    <task id="LOCAL-00015" summary="loan-12694 修改自动化测试脚本">
+      <created>1514172599630</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1514172599630</updated>
+    </task>
+    <task id="LOCAL-00016" summary="loan-12694 修改自动化测试脚本">
+      <created>1514182465103</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1514182465103</updated>
+    </task>
+    <task id="LOCAL-00017" summary="loan-12694 修改自动化测试脚本">
+      <created>1514362948808</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1514362948808</updated>
+    </task>
+    <task id="LOCAL-00018" summary="loan-12694 修改自动化测试脚本">
+      <created>1514363819629</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1514363819629</updated>
+    </task>
+    <task id="LOCAL-00019" summary="loan-12694 修改自动化测试脚本">
+      <created>1516072265510</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1516072265522</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_for_test_changjia_gongxiang_MyTestCase - 2018.01.15 at 13h 35m 07s.xml">
+      <configuration name="Unittests for test_changjia_gongxiang.MyTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_changjia_gongxiang_MyTestCase - 2018.01.15 at 14h 42m 31s.xml">
+      <configuration name="Unittests for test_changjia_gongxiang.MyTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_changjia_gongxiang_MyTestCase - 2018.01.15 at 16h 26m 35s.xml">
+      <configuration name="Unittests for test_changjia_gongxiang.MyTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_changjia_gongxiang_MyTestCase - 2018.01.16 at 09h 00m 14s.xml">
+      <configuration name="Unittests for test_changjia_gongxiang.MyTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_ddt_MyTestCase - 2018.01.12 at 17h 18m 14s.xml">
+      <configuration name="Unittests for test_ddt.MyTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_ddt_MyTestCase - 2018.01.12 at 17h 18m 31s.xml">
+      <configuration name="Unittests for test_ddt.MyTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_ddt_MyTestCase - 2018.01.12 at 17h 22m 00s.xml">
+      <configuration name="Unittests for test_ddt.MyTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_ddt_MyTestCase - 2018.01.12 at 17h 23m 34s.xml">
+      <configuration name="Unittests for test_ddt.MyTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_ddt_MyTestCase - 2018.01.12 at 17h 29m 19s.xml">
+      <configuration name="Unittests for test_ddt.MyTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_jingxiaoshang_gongxiang_MyTestCase - 2018.01.12 at 16h 22m 50s.xml">
+      <configuration name="Unittests for test_jingxiaoshang_gongxiang.MyTestCase" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21192758" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3546638" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991323" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="loan-12694 修改自动化测试脚本" />
+    <option name="LAST_COMMIT_MESSAGE" value="loan-12694 修改自动化测试脚本" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/com/ea/common/menu.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="10" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_ziying_shandong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_gongxiang_shandong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_ddt.py" />
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_gongxiang_shandong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_ziying_shandong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_ziying_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_gongxiang_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_ziying_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_gongxiang_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_ziying_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_gongxiang_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_ziying_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_gongxiang_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_ziying_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_gongxiang_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_ziying_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-152">
+          <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_gongxiang_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_ziying_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_gongxiang_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_ziying_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_gongxiang_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_ziying_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_gongxiang_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_ziying_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_gongxiang_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_ziying_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_gongxiang_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_ziying_yuedong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_gongxiang_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_ziying_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_gongxiang_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_jingxiaoshang_ziying_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_gongxiang_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shangchao_ziying_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_gongxiang_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_shuguo_ziying_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_gongxiang_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_yancao_ziying_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_ziying_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/debug.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="77" lean-forward="true" selection-start-line="2" selection-start-column="77" selection-end-line="2" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/log/mylog.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1999">
+          <caret line="21" column="116" lean-forward="true" selection-start-line="21" selection-start-column="116" selection-end-line="21" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/common/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <marker date="1515652482228" expanded="true" signature="4311:4374" ph="select * fro... act_org_role_user" />
+            <marker date="1515652482228" expanded="true" signature="4672:4737" ph="select * fro... o2o_employee" />
+            <marker date="1515652482228" expanded="true" signature="5413:5478" ph="select * fro... o2o_employee" />
+            <marker date="1515652482228" expanded="true" signature="6195:6592" ph="select em.em... o2o_employee" />
+            <marker date="1515652482228" expanded="true" signature="6244:6488" ph="select c.aud... wf_process_task_main" />
+            <marker date="1515652482228" expanded="true" signature="6244:6532" ph="select c.aud... wf_process_task_main" />
+            <marker date="1515652482228" expanded="true" signature="6244:6547" ph="select * fro... o2o_employee" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/Mainstream/test_changjia_ziying.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-399">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_changjia_gongxiang_chongqing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/Mainstream/test_changjia_gongxiang.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/common/cardname/convert-utf-8.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1064">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/common/cardnumber/IdCardNumber.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-705">
+          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/common/cardnumber/addr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/common/cardname/cardname.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="100" column="20" lean-forward="false" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/cases/ApproveByRole/test_zhongduan_gongxiang_yuexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="117" column="66" lean-forward="true" selection-start-line="117" selection-start-column="66" selection-end-line="117" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/ea/common/chinese.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

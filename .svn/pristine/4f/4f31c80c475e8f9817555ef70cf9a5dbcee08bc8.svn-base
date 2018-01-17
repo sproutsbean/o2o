@@ -1,0 +1,360 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+""" 
+@author:user 
+@file: todo_page.py 
+@time: 2017/12/08 
+"""
+
+from selenium.webdriver.common.by import By
+from com.ea.common.base_page import BasePage
+
+
+class TodoPage(BasePage):
+    u"""代办查询主页面"""
+    yewuNo_loc = (By.CSS_SELECTOR, "input[name='referCode']")
+    queryAll_loc = (By.CSS_SELECTOR, "input[name='queryAll']")
+    serchButton_loc = (By.CSS_SELECTOR, "input[value='搜索']")
+
+    def click_first_row(self, types):
+        u"""点击代办页面类型为types的第一条记录"""
+        firstrow_loc = (By.XPATH, "//td[contains(text(),'" + types + "')]/preceding-sibling::td[3]/a")
+        self.find_element(*firstrow_loc).click()
+
+    def input_yewuno(self, yewuno):
+        u"""输入业务号码"""
+        self.send_keys(self.yewuNo_loc, yewuno)
+
+    def click_query_all(self):
+        u"""勾选查询所有复选框"""
+        self.find_element(*self.queryAll_loc).click()
+
+    def click_search_button(self):
+        u"""点击查询按钮"""
+        self.find_element(*self.serchButton_loc).click()
+
+
+class ApproveZhengxinPage(BasePage):
+    u"""审批征信"""
+    pageDown_loc = (By.XPATH, "//th[text()='开始时间']")
+    approveView_loc = (By.XPATH, "//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+    approveButton_loc = (By.CSS_SELECTOR, "input[value='通 过']")
+    confirmButton_loc = (By.XPATH, "//button[text()='确认']")
+    upLoadFile_loc = (By.CSS_SELECTOR, "input[name='file']")
+    cardate_loc = (By.NAME, "zxDate")
+    frame_loc = (By.TAG_NAME, "iframe")
+    date_loc = (By.XPATH, "//td[text()='15']")
+    save_button_loc = (By.CSS_SELECTOR, "input[value='保存']")
+
+    def get_result(self, zhengxingdanhao):
+        u"""获取结果状态"""
+        result_loc = (By.XPATH, "//a[text()='" + zhengxingdanhao + "']/../following-sibling::td[7]")
+        return self.find_element(*result_loc).text
+
+    def page_down(self):
+        u"""拖动页面"""
+        self.script(*self.pageDown_loc)
+
+    def input_approve_view(self, approveview):
+        u"""输入审批意见"""
+        self.send_keys(self.approveView_loc, approveview)
+
+    def click_approve_button(self):
+        u"""点击通过按钮"""
+        self.find_element(*self.approveButton_loc).click()
+
+    def click_confirm_button(self):
+        u"""点击确认按钮"""
+        self.find_element(*self.confirmButton_loc).click()
+
+    def upload_file(self, filepath):
+        u"""上传附件"""
+        self.find_element(*self.upLoadFile_loc).send_keys(filepath)
+
+    def click_cardno_date(self):
+        u"""点击证件到期日志"""
+        self.click_date_time(self.cardate_loc, self.frame_loc, self.date_loc)
+
+    def click_save_button(self):
+        u"""点击保存按钮"""
+        self.find_element(*self.save_button_loc).click()
+
+
+class ApproveLoanPage(BasePage):
+    u"""贷款审批"""
+    edit_loc = (By.XPATH, "//a[text()='编辑']")
+    bank_overdue_loc = (By.NAME, "bankBalanceOverdue")
+    credit_overdue_loc = (By.NAME, "creditLimitOverdue")
+    nobank_overdue_loc = (By.NAME, "nonbankBalanceOverdue")
+    save_button_loc = (By.CSS_SELECTOR, "input[value='保存']")
+    approve_view_loc = (By.XPATH, "//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+    tongguo_loc = (By.CSS_SELECTOR, "input[value='通 过']")
+    confirm_loc = (By.XPATH, "//button[text()='确认']")
+    result_loc = ""
+
+    def get_result(self, loanno):
+        u"""获取结果状态"""
+        self.result_loc = (By.XPATH, "//a[text()='" + loanno + "']/../following-sibling::td[7]")
+        return self.find_element(*self.result_loc).text
+
+    def scrollto_edit(self):
+        u"""滚动页面到编辑按钮位置"""
+        self.script(*self.edit_loc)
+
+    def click_edit(self):
+        u"""点击编辑按钮"""
+        self.find_element(*self.edit_loc).click()
+
+    def input_bank_overdue(self, number):
+        u"""输入银行机构贷款:目前逾期_万元"""
+        self.send_keys(self.bank_overdue_loc, number)
+
+    def input_credit_overdue(self, number):
+        u"""输入信用卡(贷记卡及准贷记卡):目前逾期_万元"""
+        self.send_keys(self.credit_overdue_loc, number)
+
+    def input_nobank_overdue(self, number):
+        u"""输入非银行机构贷款:目前逾期_万元"""
+        self.send_keys(self.nobank_overdue_loc, number)
+
+    def scrollto_save_button(self):
+        u"""拖动页面到保存按钮位置"""
+        self.script(*self.save_button_loc)
+
+    def click_save_button(self):
+        u"""点击保存按钮"""
+        self.find_element(*self.save_button_loc).click()
+
+    def scrollto_approve_view(self):
+        u"""拖动页面到审批意见位置"""
+        self.script(*self.approve_view_loc)
+
+    def input_approve_view(self, view):
+        u"""输入审批意见"""
+        self.send_keys(self.approve_view_loc, view)
+
+    def click_tongguo(self):
+        u"""点击通过按钮"""
+        self.find_element(*self.tongguo_loc).click()
+
+    def click_confirm(self):
+        u"""点击确认按钮"""
+        self.find_element(*self.confirm_loc).click()
+
+
+class ApproveCaiwuPage(BasePage):
+    u"""财务审批"""
+    scroll_loc = (By.ID, "zxRemark")
+    save_button_loc = (By.CSS_SELECTOR, "input[value='保存']")
+    confirm_button_loc = (By.XPATH, "//button[text()='确认']")
+    approve_view_loc = (By.XPATH, "//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+    tongguo_loc = (By.CSS_SELECTOR, "input[value='通 过']")
+    result_loc = ""
+
+    def get_result(self, loanno):
+        u"""获取结果状态"""
+        self.result_loc = (By.XPATH, "//a[text()='" + loanno + "']/../following-sibling::td[8]")
+        return self.find_element(*self.result_loc).text
+
+    def scroll_to_special_condition(self):
+        u"""拖动页面到特殊情况说明位置"""
+        self.script(*self.scroll_loc)
+
+    def input_special_condition(self, condition):
+        u"""输入特殊情况说明"""
+        self.send_keys(self.scroll_loc, condition)
+
+    def click_save_button(self):
+        u"""点击特殊情况说明的保存按钮"""
+        self.find_element(*self.save_button_loc).click()
+
+    def click_confirm_button(self):
+        u"""点击确认按钮"""
+        self.find_element(*self.confirm_button_loc).click()
+
+    def input_approve_view(self, view):
+        u"""输入审批意见"""
+        self.send_keys(self.approve_view_loc, view)
+
+    def click_tongguo_button(self):
+        u"""点击通过按钮"""
+        self.find_element(*self.tongguo_loc).click()
+
+
+class ApproveInsidePage(BasePage):
+    u"""审批内部审批流程"""
+    approve_view_loc = (By.XPATH, "//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+    tongguo_loc = (By.CSS_SELECTOR, "input[value='通 过']")
+    confirm_loc = (By.XPATH, "//button[text()='确认']")
+
+    def get_result(self, loanno):
+        u"""获取结果状态"""
+        result_loc = (By.XPATH, "//a[text()='" + loanno + "']/../following-sibling::td[9]")
+        return self.find_element(*result_loc).text
+
+    def scroll_to_approve_view(self):
+        u"""拖动页面到审批意见位置"""
+        self.script(*self.approve_view_loc)
+
+    def input_approve_view(self, view):
+        u"""输入审批意见"""
+        self.send_keys(self.approve_view_loc, view)
+
+    def click_tongguo_button(self):
+        u"""点击通过按钮"""
+        self.find_element(*self.tongguo_loc).click()
+
+    def click_confirm_button(self):
+        u"""点击确认按钮"""
+        self.find_element(*self.confirm_loc).click()
+
+
+class ApproveCharge(BasePage):
+    u"""审批收费流程"""
+    payer_loc = (By.NAME, "payName")
+    pay_time_loc = (By.ID, "submitDate")
+    iframe_loc = (By.TAG_NAME, "iframe")
+    datetime_loc = (By.XPATH, "//td[text()='15']")
+    save_button_loc = (By.CSS_SELECTOR, "input[value='保存']")
+    put_print_voucher_loc = (By.CSS_SELECTOR, "input[name='file']")
+    approve_view_loc = (By.XPATH, "//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+    tongguo_button_loc = (By.CSS_SELECTOR, "input[value='通 过']")
+    confirm_button_loc = (By.XPATH, "//button[text()='确认']")
+    daokuan_total_loc = (By.ID, "reDaokuanTotal")
+    pay_date_loc = (By.ID, "payDate")
+    collect_acount_loc = (By.ID, "skBankAccountBZJ")
+
+    def get_result(self, loanno):
+        u"""获取结果状态"""
+        result_loc = (By.XPATH, "//a[text()='" + loanno + "']/../following-sibling::td[8]")
+        return self.find_element(*result_loc).text
+
+    def scroll_to_payer(self):
+        u"""拖动页面到付款人位置"""
+        self.script(*self.payer_loc)
+
+    def input_payer(self, payer):
+        u"""输入付款人"""
+        self.send_keys(self.payer_loc, payer)
+
+    def click_pay_time(self):
+        u"""点击付款时间"""
+        self.click_date_time(self.pay_time_loc, self.iframe_loc, self.datetime_loc)
+
+    def click_save_button(self):
+        u"""点击保存按钮"""
+        self.find_element(*self.save_button_loc).click()
+
+    def input_print_voucher(self, pic_path):
+        u"""上传打印凭证"""
+        self.find_element(*self.put_print_voucher_loc).send_keys(pic_path)
+
+    def scroll_to_approve_view(self):
+        u"""拖动页面到审批意见位置"""
+        self.script(*self.approve_view_loc)
+
+    def input_approve_view(self, view):
+        u"""输入审批意见"""
+        self.send_keys(self.approve_view_loc, view)
+
+    def click_tongguo_button(self):
+        u"""点击通过按钮"""
+        self.find_element(*self.tongguo_button_loc).click()
+
+    def click_confirm_button(self):
+        u"""点击确认按钮"""
+        self.find_element(*self.confirm_button_loc).click()
+
+    def scroll_to_daokuan_total(self):
+        u"""拖动页面到本次到款合计金额位置"""
+        self.script(*self.daokuan_total_loc)
+
+    def input_daokuan_total(self, daokuan_total):
+        u"""输入本次到款合计金额"""
+        self.send_keys(self.daokuan_total_loc, daokuan_total)
+
+    def click_pay_date(self):
+        u"""点击付款日期"""
+        self.click_date_time(self.pay_date_loc, self.iframe_loc, self.datetime_loc)
+
+    def select_collect_acount(self, acount):
+        u"""拖动页面到实际收款账户"""
+        self.select_widget(acount, *self.collect_acount_loc)
+
+
+class ApproveInterview(BasePage):
+    u"""面签审批"""
+    approve_view_loc = (By.XPATH, "//td[text()='审核意见:']/following-sibling::td[1]/textarea")
+    tongguo_loc = (By.CSS_SELECTOR, "input[value='通 过']")
+    confirm_loc = (By.XPATH, "//button[text()='确认']")
+    isPhoneCheck_loc = (By.NAME, "isPhoneCheck")
+    phoneCheckMessage_loc = (By.NAME, "phoneCheckMessage")
+    phone_save_button_loc = (By.CSS_SELECTOR, "form[action$='save_bankLoanData_phone'] input[value='保存']")
+    fujian_save_button_loc = (By.CSS_SELECTOR, "form[action$='save_bankLoanData'] input[value='保存']")
+    isFujianOver_loc = (By.NAME, "isCheckMqCl")
+    card_daoqi_date_loc = (By.ID, "loanDate")
+    save_bank_loan_data_loc = (By.CSS_SELECTOR, "input[value='保存银行放款数据']")
+    input_file_loc = (By.CSS_SELECTOR, "input[name='file']")
+    frame_loc = (By.TAG_NAME, "iframe")
+    date_loc = (By.XPATH, "//td[text()='15']")
+
+    def get_result(self, loanno):
+        u"""获取结果状态"""
+        result_loc = (By.XPATH, "//a[text()='" + loanno + "']/../following-sibling::td[7]")
+        return self.find_element(*result_loc).text
+
+    def scroll_to_approve_view(self):
+        u"""拖动页面到审批意见位置"""
+        self.script(*self.approve_view_loc)
+
+    def input_approve_view(self, approve_view):
+        u"""输入审批意见"""
+        self.send_keys(self.approve_view_loc, approve_view)
+
+    def click_tongguo(self):
+        u"""点击通过按钮"""
+        self.find_element(*self.tongguo_loc).click()
+
+    def click_confirm(self):
+        u"""点击确认按钮"""
+        self.find_element(*self.confirm_loc).click()
+
+    def scroll_to_is_phone_check(self):
+        u"""拖动页面到是否电核位置"""
+        self.script(*self.isPhoneCheck_loc)
+
+    def select_is_phone_check(self, isphonecheck):
+        u"""选择是否电核"""
+        self.select_widget(isphonecheck, *self.isPhoneCheck_loc)
+
+    def input_phone_check_message(self, phonecheckmessage):
+        u"""输入电核意见"""
+        self.send_keys(self.phoneCheckMessage_loc, phonecheckmessage)
+
+    def click_phone_save_button(self):
+        u"""点击电核意见的保存按钮"""
+        self.find_element(*self.phone_save_button_loc).click()
+
+    def select_is_fujian_over(self, isfujianover):
+        u"""选择确认附件是否上传齐全"""
+        self.select_widget(isfujianover, *self.isFujianOver_loc)
+
+    def click_fujian_save_button(self):
+        u"""点击确认附件是否上传齐全的保存按钮"""
+        self.find_element(*self.fujian_save_button_loc).click()
+
+    def scroll_to_card_date(self):
+        u"""拖动页面到实际放款日位置"""
+        self.script(*self.card_daoqi_date_loc)
+
+    def click_card_daoqi_date(self):
+        u"""点击实际放款日"""
+        self.click_date_time(self.card_daoqi_date_loc, self.frame_loc, self.date_loc)
+
+    def click_save_bank_loan_data(self):
+        u"""点击保存银行放款数据按钮"""
+        self.find_element(*self.save_bank_loan_data_loc).click()
+
+    def input_file(self, file_path):
+        u"""导入还款计划"""
+        self.find_element(*self.input_file_loc).send_keys(file_path)

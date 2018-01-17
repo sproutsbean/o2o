@@ -1,0 +1,52 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+""" 
+@author:user 
+@file: mysql_demo.py 
+@time: 2017/11/24 
+"""
+import os
+import sys
+import pymysql
+
+print(__file__)
+print(sys.argv[0])
+print(os.path.splitext(os.path.basename(__file__))[0])
+print(os.path.basename(sys.argv[0]))
+screenshot_path = os.path.join((os.path.dirname(os.path.dirname(os.path.realpath(__file__)))),
+                               'screenshot\\test_zhongduandai_ziying')
+# file = screenshot_path + "\\*.png"
+# print(file)
+files = os.listdir(screenshot_path)
+print(files)
+for file in files:
+    os.remove(screenshot_path + "\\" + file)
+# os.remove(file)
+# # 打开数据库连接
+# db = pymysql.connect(host="172.29.12.197", port=3307, user="o2ocrm", passwd="o2ocrm@we741", db="o2ocrm",
+#                      charset='utf8')
+#
+# # 使用cursor()方法获取操作游标
+# cursor = db.cursor()
+#
+# # SQL 查询语句
+# sql = "SELECT * FROM pub_datadictionary WHERE dd_no<10"
+# try:
+#     # 执行SQL语句
+#     cursor.execute(sql)
+#     # 获取所有记录列表
+#     results = cursor.fetchall()
+#     for row in results:
+#         dd_no = row[0]
+#         dd_code = row[1]
+#         dd_name = row[2]
+#         dd_desc = row[3]
+#         is_lock = row[4]
+#         # 打印结果
+#         print(dd_no, dd_code, dd_name, dd_desc, is_lock)
+# except Exception as e:
+#     print(e)
+#     print("Error: unable to fetch data")
+#
+# # 关闭数据库连接
+# db.close()

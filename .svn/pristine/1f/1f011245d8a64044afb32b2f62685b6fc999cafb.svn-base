@@ -1,0 +1,182 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+""" 
+@author:user 
+@file: menu.py 
+@time: 2017/11/15 
+"""
+
+from selenium.webdriver.common.action_chains import ActionChains
+import time
+
+
+#########################################         征信管理主菜单                ##########################################################################
+def go_to_zhengxin_manage(driver):
+    u'''进入征信管理主菜单'''
+    actions = ActionChains(driver)
+    el = driver.find_element_by_xpath("//a[text()='征信管理']")
+    actions.move_to_element(el).perform()
+
+
+def go_to_personnel_zhengxin_query(driver):
+    u'''进入个人征信管理页面'''
+    actions = ActionChains(driver)
+    go_to_zhengxin_manage(driver)
+    el = driver.find_element_by_xpath("//a[text()='征信查询']")
+    actions.move_to_element(el).click().perform()
+
+
+#########################################         征信管理主菜单                ##########################################################################
+
+
+
+#########################################         贷款管理主菜单                ##########################################################################
+
+def go_to_loan_manage(driver):
+    u'''进入贷款管理主菜单'''
+    actions = ActionChains(driver)
+    el = driver.find_element_by_xpath("//a[text()='贷款管理']")
+    actions.move_to_element(el).perform()
+
+
+def go_to_loan_apply(driver):
+    u'''进入贷款管理下的申请贷款页面'''
+    actions = ActionChains(driver)
+    go_to_loan_manage(driver)
+    time.sleep(1)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='申请贷款']")
+    actions.move_to_element(el).click().perform()
+
+
+def go_to_loan_query(driver):
+    u'''进入贷款管理下的贷款查询页面'''
+    actions = ActionChains(driver)
+    go_to_loan_manage(driver)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='贷款查询']")
+    actions.move_to_element(el).click().perform()
+
+
+def go_to_allow_zhengxin(driver):
+    u'''进入贷款管理下的征信准入页面'''
+    actions = ActionChains(driver)
+    go_to_loan_manage(driver)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='征信准入']")
+    actions.move_to_element(el).click().perform()
+
+
+def go_to_inside_approve(driver):
+    u'''进入贷款管理下的内部审批页面'''
+    actions = ActionChains(driver)
+    go_to_loan_manage(driver)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='内部审批']")
+    actions.move_to_element(el).click().perform()
+
+
+def go_to_charge_query(driver):
+    u'''进入贷款管理下的收费查询页面'''
+    actions = ActionChains(driver)
+    go_to_loan_manage(driver)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='收费查询']")
+    actions.move_to_element(el).click().perform()
+
+
+def go_to_interview_report(driver):
+    u'''进入贷款管理下的面签提报页面'''
+    actions = ActionChains(driver)
+    go_to_loan_manage(driver)
+    # 点击面签提报
+    el = driver.find_element_by_xpath("//a[text()='面签提报']")
+    actions.move_to_element(el).click().perform()
+
+def go_to_platform_caiwu_approve(driver):
+    u'''进入平台财务审核页面'''
+    actions = ActionChains(driver)
+    go_to_loan_manage(driver)
+    #点击平台财务审核
+    el = driver.find_element_by_xpath("//a[text()='平台财务审核']")
+    actions.move_to_element(el).click().perform()
+
+#########################################         贷款管理主菜单                ##########################################################################
+
+
+
+#########################################         客户管理主菜单                ##########################################################################
+def go_to_customer_manage(driver):
+    u'''进入贷款管理主菜单'''
+    actions = ActionChains(driver)
+    el = driver.find_element_by_xpath("//a[text()='贷款管理']")
+    actions.move_to_element(el).perform()
+
+
+def go_to_factor_manage(driver):
+    u'''进入客户管理下的厂家合作方管理页面'''
+    actions = ActionChains(driver)
+    go_to_customer_manage(driver)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='厂家合作方管理']")
+    actions.move_to_element(el).click().perform()
+
+
+def go_to_brand_manage(driver):
+    u'''进入客户管理下的品牌管理页面'''
+    actions = ActionChains(driver)
+    go_to_customer_manage(driver)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='品牌管理']")
+    actions.move_to_element(el).click().perform()
+
+
+def go_to_channel_manage(driver):
+    u'''进入客户管理下的渠道管理页面'''
+    actions = ActionChains(driver)
+    go_to_customer_manage(driver)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='渠道管理']")
+    actions.move_to_element(el).click().perform()
+
+
+#########################################         客户管理主菜单                ##########################################################################
+
+
+#########################################         贷后管理主菜单                ##########################################################################
+def go_to_afterloan_manage(driver):
+    u'''进入贷后管理主菜单'''
+    actions = ActionChains(driver)
+    el = driver.find_element_by_xpath("//a[text()='贷后管理']")
+    actions.move_to_element(el).perform()
+
+
+def go_to_afterloan_query(driver):
+    u'''进入客户管理下的渠道管理页面'''
+    actions = ActionChains(driver)
+    go_to_afterloan_manage(driver)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='贷后查询']")
+    actions.move_to_element(el).click().perform()
+
+
+#########################################         贷后管理主菜单                ##########################################################################
+
+
+#########################################         审批管理主菜单                ##########################################################################
+def go_to_approve_manage(driver):
+    u'''进入审批管理主菜单'''
+    actions = ActionChains(driver)
+    el = driver.find_element_by_xpath("//a[text()='审批管理']")
+    actions.move_to_element(el).perform()
+
+
+def go_to_wait_todo_query(driver):
+    u'''进入客户管理下的渠道管理页面'''
+    actions = ActionChains(driver)
+    go_to_approve_manage(driver)
+    # 点击征信查询
+    el = driver.find_element_by_xpath("//a[text()='待办查询']")
+    actions.move_to_element(el).click().perform()
+
+#########################################         审批管理主菜单                ##########################################################################

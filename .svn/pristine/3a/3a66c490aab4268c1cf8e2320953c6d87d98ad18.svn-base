@@ -1,0 +1,17 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+""" 
+@author:user 
+@file: menu_check_page.py 
+@time: 2018/01/04 
+"""
+from selenium.webdriver.common.by import By
+from com.ea.common.base_page import BasePage
+import time
+
+
+class MenuPage(BasePage):
+    search_button_loc = (By.CSS_SELECTOR, "input[value='搜索']")
+
+    def have_search_button(self):
+        self.find_elements(*self.search_button_loc)

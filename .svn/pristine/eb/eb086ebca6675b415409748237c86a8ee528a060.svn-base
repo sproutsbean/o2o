@@ -1,0 +1,119 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+""" 
+@author:user 
+@file: apply_loan_page.py 
+@time: 2017/12/15 
+"""
+from selenium.webdriver.common.by import By
+from com.ea.common.base_page import BasePage
+import time
+
+
+class ApplyLoanPage(BasePage):
+    cardno_loc = (By.ID, "idCard")
+    nextbutton_loc = (By.CSS_SELECTOR, "input[value='下一步']")
+    marry_loc = (By.NAME, "maritalStatus")
+    loantype_loc = (By.ID, "loanType")
+    submit_loc = (By.CSS_SELECTOR, "input[value='确认']")
+    confirm_loc = (By.XPATH, "//button[text()='确认']")
+    loanmanager_loc = (By.NAME, "operatorName")
+    loanmanager_firstrow_loc = (By.ID, "suggest_row1")
+    loanamount_loc = (By.ID, "loanaMount")
+    managerment_mode_loc = (By.ID, "operationModel")
+    sdname_loc = (By.CSS_SELECTOR, "input.textbox-text.validatebox-text.textbox-prompt")
+    sdname_firstrow_loc = (By.XPATH, "//tr[@id='datagrid-row-r2-2-0']/td/div")
+    # 非终端贷此处为渠道名称
+    channel_name_loc = (By.NAME, "partnerName")
+    channel_name_first_row_loc = (By.CSS_SELECTOR, "input[name='partnerName']+div>div>span")
+
+    operator_platform_loc = (By.NAME, "ltdName")
+    operator_platform_firstrow_loc = (By.XPATH, "//span[@id='default_show']/div/div/span")
+    # 自营模式
+    zy_operator_platform_loc = (By.NAME, "ltdName1")
+    zy_operator_platform_firstrow_loc = (By.XPATH, "//span[@id='default_hidden']/div/div/span")
+
+    savebutton_loc = (By.CSS_SELECTOR, "input[value='保 存']")
+    afterzhengxin_savebutton_loc = (By.CSS_SELECTOR, "input[value='保存']")
+    choose_zhengxin_button_loc = (By.XPATH, "//a[text()='选择征信报告']")
+    gouxuan_zhengxin_loc = (By.NAME, "ids")
+    commit_zhengxin_in_loc = (By.XPATH, "//a[text()='提交征信准入流程']")
+    loanno_loc = (By.XPATH, "//td[text()='贷款单号:']/following-sibling::td[1]")
+
+    def input_carno(self, cardno):
+        u"""输入身份证号码"""
+        self.send_keys(self.cardno_loc, cardno)
+
+    def click_nextbutton(self):
+        u"""点击下一步按钮"""
+        self.find_element(*self.nextbutton_loc).click()
+
+    def select_marry(self, marry):
+        u"""选择是否已结婚"""
+        self.select_widget(marry, *self.marry_loc)
+
+    def select_loantype(self, loantype):
+        u"""选择贷款类型"""
+        self.select_widget(loantype, *self.loantype_loc)
+
+    def click_confirm_button(self):
+        u"""点击提交按钮"""
+        self.find_element(*self.submit_loc).click()
+        self.find_element(*self.confirm_loc).click()
+
+    def input_loanmanager(self, loanmanager):
+        u"""输入信贷经理"""
+        self.send_keys(self.loanmanager_loc, loanmanager)
+        self.find_element(*self.loanmanager_firstrow_loc).click()
+
+    def input_loanamount(self, loanamount):
+        u"""输入贷款金额"""
+        self.send_keys(self.loanamount_loc, loanamount)
+
+    def select_managerment_mode(self, mode):
+        u"""选择经营模式"""
+        self.select_widget(mode, *self.managerment_mode_loc)
+
+    def input_sdname(self, sdname):
+        u"""输入SD客户名称"""
+        self.find_element(*self.sdname_loc).send_keys(sdname)
+        time.sleep(5)
+        self.find_element(*self.sdname_firstrow_loc).click()
+
+    def input_channel_name(self, channel_name):
+        u"""输入渠道名称(非终端贷)"""
+        self.find_element(*self.channel_name_loc).send_keys(channel_name)
+        self.find_element(*self.channel_name_first_row_loc).click()
+
+    def input_operator_platform(self, platform):
+        u"""输入经办平台(共享模式)"""
+        self.send_keys(self.operator_platform_loc, platform)
+        self.find_element(*self.operator_platform_firstrow_loc).click()
+
+    def input_zy_operator_platform(self, platform):
+        u"""输入经办平台(自营模式)"""
+        self.send_keys(self.zy_operator_platform_loc, platform)
+        self.find_element(*self.zy_operator_platform_firstrow_loc).click()
+
+    def click_savebutton(self):
+        u"""点击保存按钮"""
+        self.find_element(*self.savebutton_loc).click()
+        time.sleep(1)
+
+    def click_afterzhengxin_savebutton(self):
+        u"""点击选择征信报告后页面的保存按钮"""
+        self.find_element(*self.afterzhengxin_savebutton_loc).click()
+        time.sleep(1)
+
+    def click_choose_zhengxin_button(self):
+        u"""选择征信报告"""
+        self.find_element(*self.choose_zhengxin_button_loc).click()
+        self.find_element(*self.gouxuan_zhengxin_loc).click()
+
+    def click_commit_zhengxin_in(self):
+        u"""点击提交征信准入流程按钮"""
+        self.find_element(*self.commit_zhengxin_in_loc).click()
+
+    def get_loanno(self):
+        u"""获取贷款单号"""
+        return self.find_element(*self.loanno_loc).text

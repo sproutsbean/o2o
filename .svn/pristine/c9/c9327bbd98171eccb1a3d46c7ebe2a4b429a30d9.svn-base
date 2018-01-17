@@ -1,0 +1,94 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+""" 
+@author:user 
+@file: checkpoint.py 
+@time: 2017/11/29 
+"""
+from com.ea.common import menu
+import time
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
+
+def loan_approve_checkpoint(self, driver, loanNo):
+    u"""贷款审批检查点"""
+    # 切换到贷款查询页面
+    menu.go_to_loan_query(driver)
+    time.sleep(2)
+    result = driver.find_element_by_xpath(
+        "//a[text()='" + loanNo + "']/../following-sibling::td[7]").text
+    self.assertEqual(result, "征信准入完成")
+
+
+def edit_inside_apply_checkpoint(self, wait, driver, loanNo):
+    u"""编辑内部审批检查点"""
+    wait.until(
+        EC.presence_of_element_located(
+            (By.XPATH, "//a[text()='" + loanNo + "']/../following-sibling::td[9]")))
+    result = driver.find_element_by_xpath(
+        "//a[text()='" + loanNo + "']/../following-sibling::td[9]").text
+    self.assertEqual(result, "审核中")
+
+
+def inside_approve_checkpoint(self, wait, driver, loanNo):
+    u"""审批内部审批检查点"""
+    # 切换到内部审批页面
+    menu.go_to_inside_approve(driver)
+    wait.until(
+        EC.presence_of_element_located(
+            (By.XPATH, "//a[text()='" + loanNo + "']/../following-sibling::td[9]")))
+    result = driver.find_element_by_xpath(
+        "//a[text()='" + loanNo + "']/../following-sibling::td[9]").text
+    self.assertEqual(result, "结束")
+
+
+def charge_apply_checkpoint(self, driver, loanNo):
+    u"""提交收费流程检查点"""
+    result = driver.find_element_by_xpath(
+        "//a[text()='" + loanNo + "']/../following-sibling::td[8]").text
+    self.assertEqual(result, "审核中")
+
+
+def charge_approve_checkpoint(self, wait, driver, loanNo):
+    u"""审批收费流程检查点"""
+    # 切换到收费查询页面
+    menu.go_to_charge_query(driver)
+    wait.until(
+        EC.presence_of_element_located(
+            (By.XPATH, "//a[text()='" + loanNo + "']/../following-sibling::td[8]")))
+    result = driver.find_element_by_xpath(
+        "//a[text()='" + loanNo + "']/../following-sibling::td[8]").text
+    self.assertEqual(result, "流程结束")
+
+
+def interview_apply_checkpoint(self, wait, driver, loanNo):
+    u"""提交面签检查点"""
+    wait.until(
+        EC.presence_of_element_located(
+            (By.XPATH, "//a[text()='" + loanNo + "']/../following-sibling::td[10]")))
+    result = driver.find_element_by_xpath(
+        "//a[text()='" + loanNo + "']/../following-sibling::td[10]").text
+    self.assertEqual(result, "审核中")
+
+
+def interview_approve_checkpoint(self, wait, driver, loanNo):
+    u"""审批面签检查点"""
+    # 切换到面签提报页面
+    menu.go_to_loan_query(driver)
+    time.sleep(2)
+    wait.until(
+        EC.presence_of_element_located(
+            (By.XPATH, "//a[text()='" + loanNo + "']/../following-sibling::td[7]")))
+    result = driver.find_element_by_xpath(
+        "//a[text()='" + loanNo + "']/../following-sibling::td[7]").text
+    self.assertEqual(result, "已放款")
+
+
+def caiwu_approve_checkpoint(self, driver, loanNo):
+    # 切换平台财务审核页面
+    menu.go_to_platform_caiwu_approve(driver)
+    time.sleep(2)
+    result = driver.find_element_by_xpath(
+        "//a[text()='" + loanNo + "']/../following-sibling::td[8]").text
+    self.assertEqual(result, "流程结束")

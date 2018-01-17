@@ -1,0 +1,628 @@
+#!usr/bin/env python  
+# -*- coding:utf-8 -*-
+""" 
+@author:user 
+@file: test_zhongduan_gongxiang.py 
+@time: 2017/12/11 
+"""
+import unittest
+from com.ea.common.cardname import cardname
+from com.ea.common.cardnumber import IdCardNumber
+from com.ea.common import login
+from com.ea.resource import globalparameter as gl
+from com.ea.common import menu
+import time
+from com.ea.common import tools
+import os
+import sys
+
+
+class MyTestCase(unittest.TestCase):
+    u"""商超贷共享模式"""
+    screenshot_path = os.path.join(gl.screenshot_path, os.path.splitext(os.path.basename(__file__))[0])
+    print(screenshot_path)
+    pic_path = gl.test_pic_path
+    cardNo = IdCardNumber.getRandomIdNumber(1)[0]
+    fullname, first_name, second_name, english_name = cardname.get_name()
+    phoneNo = cardname.createPhone()
+    loanno = ""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = tools.get_chrome_driver()
+        tools.del_pics(cls.screenshot_path)
+        login.login(cls.driver)
+        from com.ea.common.newzhengxin import NewZhengxin
+        cls.newzhengxin = NewZhengxin(cls.driver, cls.cardNo, cls.fullname, cls.first_name, cls.second_name,
+                                      cls.english_name, cls.phoneNo)
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
+        # pass
+
+    def test_a_zhengxin_apply(self):
+        u"""创建征信"""
+        casename = sys._getframe().f_code.co_name
+        try:
+            self.newzhengxin.zhengxin_apply()
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+    def test_b_zhengxin_approve(self):
+        u"""审批征信"""
+        casename = sys._getframe().f_code.co_name
+        try:
+            self.newzhengxin.zhengxin_approve()
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+    def test_c_loan_apply(self):
+        u"""申请贷款"""
+        casename = sys._getframe().f_code.co_name
+        marray = "未婚"
+        loantype = "流通贷-商超"
+        operator_mode = "共享模式"
+        loan_manager = "李"
+        loan_amount = "50000"
+        channel_name = "北京"
+        operator_platform = "深圳平台"
+        print("申请贷款开始")
+        print("采用的身份证号: " + self.cardNo)
+        # self.cardNo = "653200198703046277"
+        from com.ea.pages.apply_loan_page import ApplyLoanPage
+        try:
+            menu.go_to_loan_apply(self.driver)
+            applyloanpage = ApplyLoanPage(self.driver)
+            applyloanpage.input_carno(self.cardNo)
+            applyloanpage.click_nextbutton()
+            applyloanpage.select_marry(marray)
+            applyloanpage.select_loantype(loantype)
+            applyloanpage.click_confirm_button()
+            applyloanpage.input_loanmanager(loan_manager)
+            applyloanpage.input_loanamount(loan_amount)
+            applyloanpage.select_managerment_mode(operator_mode)
+            applyloanpage.input_channel_name(channel_name)
+            applyloanpage.input_operator_platform(operator_platform)
+            applyloanpage.click_savebutton()
+            applyloanpage.click_choose_zhengxin_button()
+            applyloanpage.click_afterzhengxin_savebutton()
+            applyloanpage.page_down()
+            applyloanpage.click_savebutton()
+            applyloanpage.click_commit_zhengxin_in()
+            MyTestCase.loanno = applyloanpage.get_loanno()
+            self.assertIsNotNone(self.loanno)
+            print("产生的贷款单号是:" + self.loanno)
+            print("申请贷款结束")
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+    def test_d_loan_approve(self):
+        u"""贷款审批"""
+        casename = sys._getframe().f_code.co_name
+        number = "0"
+        view = "OK"
+        process_type = "征信准入"
+        except_result = "征信准入完成"
+        # self.loanno = "SK0027-BK-1712-00006"
+        print("审批贷款开始")
+        print("使用的贷款单号是:" + self.loanno)
+        from com.ea.pages.todo_page import TodoPage, ApproveLoanPage
+        try:
+            todopage = TodoPage(self.driver)
+            approvepage = ApproveLoanPage(self.driver)
+            # 进入待办查询页面
+            menu.go_to_wait_todo_query(self.driver)
+            todopage.input_yewuno(self.loanno)
+            todopage.click_query_all()
+            todopage.click_search_button()
+            todopage.click_first_row(process_type)
+            approvepage.scrollto_edit()
+            approvepage.click_edit()
+            approvepage.input_bank_overdue(number)
+            approvepage.input_credit_overdue(number)
+            approvepage.input_nobank_overdue(number)
+            approvepage.scrollto_save_button()
+            approvepage.click_save_button()
+            time.sleep(2)
+            approvepage.scrollto_approve_view()
+            approvepage.input_approve_view(view)
+            approvepage.click_tongguo()
+            approvepage.click_confirm()
+            time.sleep(3)
+            menu.go_to_loan_query(self.driver)
+            time.sleep(1)
+            actual_result = approvepage.get_result(self.loanno)
+            self.assertEqual(actual_result, except_result)
+            print("审批贷款结束")
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+    def test_f_edit_inside_apply(self):
+        u"""启动内部审批"""
+        casename = sys._getframe().f_code.co_name
+        expect_result = "审核中"
+        organization = "公安局"
+        home_phone = "075528560115"
+        wechat = "123564456"
+        postcode = "518001"
+        province = "北京"
+        city = "东城区"
+        road = "无名路"
+        live_years = "5"
+        children_description = "这里是子女情况描述"
+        contact_names = ["张三", "李四"]
+        contact_phones = ["13625648852", "13525648853"]
+        relationship = "朋友"
+        total_price = "20"
+        mj_price = "1"
+        zhizhao_name = "YYZZ0001"
+        register_no = "1025110001"
+        organization_type = "个体工商户"
+        shareholder_number = "1"
+        share_proportion = "100"
+        business_isnormal = "无"
+        borrower_iscontroler = "是"
+        controler_name = self.fullname
+        yingye_mode = "便利店"
+        vocation_type = "百货"
+        jinglirun = "20"
+        fuzhaizonge = "10"
+        nianxiaoshoue = "50"
+        six_month_sales = "3"
+        personnel_number = "5"
+        month_pay = "20000"
+        water_pay = "1000"
+        other_pay = "500"
+        transport_pay = "1500"
+        capital = "100"
+        nianjinglirun = "20"
+        should_pay = "50"
+        collect = "60"
+        liabilities = "10"
+        invest = "10"
+        property_type = "租赁"
+        env_description = "这里是门店经营环境描述"
+        store_phone = "57629280"
+        area = "20"
+        shoprent_year = "20000"
+        store_value = "500000"
+        new_old = "很新"
+        zhengqi = "整齐"
+        store_description = "这里是存货效期描述"
+        loan_time = "6个月"
+        huankuan_type = "等额本息"
+        loan_yongtu = "流动资金"
+        eamount = "50000"
+        bankname = "江西银行"
+        tuijian_type = "合作方推荐"
+        tuijian_name = "李超"
+        danbao_type = "其它方式"
+        twobatch = "1"
+        supermarket = "1"
+        directRetail = "1"
+        retail = "1"
+        custom_name = "客户一"
+        jiesuanzhangqi = "30"
+        gonghuoliang = "3000"
+        productBrand = "耐克"
+        productType = "鞋子"
+        dailizizhi = "良好"
+        hezuoqixian = "10"
+        y_saleTask = "100"
+        # self.loanno = "SK0027-SC-1712-00004"
+        print("开始申请内部审批")
+        print("使用的贷款单号是:" + self.loanno)
+        try:
+            from com.ea.pages.inside_page import InsidePage
+            insidepage = InsidePage(self.driver)
+            menu.go_to_inside_approve(self.driver)
+            handle1 = self.driver.current_window_handle
+            insidepage.click_first_row(self.loanno)
+            handles = self.driver.window_handles
+            handle2 = ""
+            for handle in handles:
+                if handle != handle1:
+                    self.driver.switch_to.window(handle)
+                    handle2 = self.driver.current_window_handle
+            time.sleep(2)
+            insidepage.click_editinside_button()
+            handles = self.driver.window_handles
+            for handle in handles:
+                if handle != handle1 and handle != handle2:
+                    self.driver.switch_to.window(handle)
+            # 借款人基本信息
+            insidepage.click_editborrower_button()
+            insidepage.input_card_organization(organization)
+            insidepage.input_home_phone(home_phone)
+            insidepage.input_wechat(wechat)
+            insidepage.input_postcode(postcode)
+            insidepage.select_register_addr_province(province)
+            time.sleep(1)
+            insidepage.select_register_addr_city(city)
+            insidepage.input_register_addr_road(road)
+            insidepage.select_sleep_addr_province(province)
+            time.sleep(1)
+            insidepage.select_sleep_addr_city(city)
+            insidepage.input_sleep_addr_road(road)
+            insidepage.input_live_years(live_years)
+            insidepage.input_children(children_description)
+            insidepage.click_borrower_save()
+            insidepage.click_borrower_confirm()
+            time.sleep(1)
+            # 添加紧急联系人
+            insidepage.scroll_to_contact()
+            time.sleep(1)
+            for i in range(2):
+                insidepage.click_contact_add()
+                insidepage.input_contact_name(contact_names[i])
+                insidepage.input_contact_phone(contact_phones[i])
+                insidepage.select_contacts_relationship(relationship)
+                insidepage.click_contact_save()
+                time.sleep(2)
+            # 夫妻双方负债情况
+            insidepage.click_edit_fuzhai()
+            insidepage.input_total_price(total_price)
+            insidepage.input_mj_price(mj_price)
+            insidepage.click_fuzhai_save()
+            time.sleep(1)
+            # 经营主体信息
+            insidepage.scroll_to_jingyingzhuti_edit_button()
+            time.sleep(1)
+            insidepage.click_jingyingzhuti_edit()
+            insidepage.input_yingyezhizhao_name(zhizhao_name)
+            insidepage.input_zhucehao(register_no)
+            insidepage.select_organization_type(organization_type)
+            insidepage.click_register_time()
+            insidepage.select_zhizhao_addr_province(province)
+            time.sleep(1)
+            insidepage.select_zhizhao_addr_city(city)
+            insidepage.input_zhizhao_addr_road(road)
+            insidepage.input_shareholder_number(shareholder_number)
+            insidepage.input_share_proportion(share_proportion)
+            insidepage.select_business_isnormal(business_isnormal)
+            insidepage.select_borrower_iscontroler(borrower_iscontroler)
+            insidepage.input_controler_name(controler_name)
+            insidepage.select_yingye_mode(yingye_mode)
+            insidepage.select_vocation_type(vocation_type)
+            insidepage.click_start_time()
+            insidepage.click_zhuti_submit_button()
+            time.sleep(3)
+            # 经营历史
+            insidepage.click_history_add()
+            insidepage.click_years()
+            insidepage.input_jingli(jinglirun)
+            insidepage.input_fuzhaizonge(fuzhaizonge)
+            insidepage.input_nianxiaoshoue(nianxiaoshoue)
+            insidepage.click_history_save_button()
+            time.sleep(2)
+            # 近6个月营业额情况
+            insidepage.click_six_month_edit()
+            insidepage.input_january(six_month_sales)
+            insidepage.input_february(six_month_sales)
+            insidepage.input_march(six_month_sales)
+            insidepage.input_april(six_month_sales)
+            insidepage.input_may(six_month_sales)
+            insidepage.input_june(six_month_sales)
+            insidepage.click_six_month_submit()
+            time.sleep(2)
+            # 编辑经营状况
+            insidepage.click_edit_status()
+            insidepage.input_personnel_number(personnel_number)
+            insidepage.input_month_pay(month_pay)
+            insidepage.input_water_pay(water_pay)
+            insidepage.input_other_pay(other_pay)
+            insidepage.input_transport_pay(transport_pay)
+            insidepage.input_capital(capital)
+            insidepage.input_nianjinglirun(nianjinglirun)
+            insidepage.click_bank_water()
+            insidepage.input_should_pay(should_pay)
+            insidepage.input_collect(collect)
+            insidepage.input_liabilities(liabilities)
+            insidepage.input_invest(invest)
+            insidepage.click_status_save_button()
+            time.sleep(2)
+            # 新增门店信息
+            insidepage.scroll_to_store()
+            time.sleep(1)
+            insidepage.click_store_add_button()
+            insidepage.select_property_type(property_type)
+            insidepage.input_env_description(env_description)
+            insidepage.input_store_phone(store_phone)
+            insidepage.click_store_date()
+            insidepage.select_store_addr_province(province)
+            time.sleep(1)
+            insidepage.select_store_addr_city(city)
+            insidepage.input_store_addr_road(road)
+            insidepage.input_business_area(area)
+            insidepage.input_shoprent_year(shoprent_year)
+            insidepage.click_shoprent_starttime()
+            insidepage.click_shoprent_endtime()
+            insidepage.input_store_value(store_value)
+            insidepage.select_new_old(new_old)
+            insidepage.select_zhengqi(zhengqi)
+            insidepage.input_store_description(store_description)
+            insidepage.click_store_submit()
+            time.sleep(2)
+            # 编辑渠道数据
+            insidepage.scroll_to_shangchao_channel()
+            time.sleep(1)
+            insidepage.click_whitelisttime()
+            insidepage.input_twobatch(twobatch)
+            insidepage.input_supermarket(supermarket)
+            insidepage.input_directRetail(directRetail)
+            insidepage.input_retail(retail)
+            insidepage.click_fruits_save_button()
+            # 编辑下游信息
+            insidepage.click_xiayou_add()
+            insidepage.input_custom_name(custom_name)
+            insidepage.input_jiesuanzhangqi(jiesuanzhangqi)
+            insidepage.input_gonghuoliang(gonghuoliang)
+            insidepage.click_xiayou_save_button()
+            time.sleep(2)
+            # 增加主要产品销售情况
+            insidepage.click_shangchao_product_add()
+            insidepage.input_productBrand(productBrand)
+            insidepage.input_productType(productType)
+            insidepage.input_dailizizhi(dailizizhi)
+            insidepage.input_hezuoqixian(hezuoqixian)
+            insidepage.input_y_saleTask(y_saleTask)
+            insidepage.click_sale_product_save()
+            time.sleep(2)
+            # 编辑贷款信息
+            insidepage.scroll_to_loan_info()
+            time.sleep(1)
+            insidepage.select_loan_time(loan_time)
+            insidepage.select_huankuan_type(huankuan_type)
+            insidepage.input_eamount(eamount)
+            insidepage.select_loan_yongtu(loan_yongtu)
+            insidepage.select_loan_bankname(bankname)
+            insidepage.select_tuijian_type(tuijian_type)
+            insidepage.input_tuijian_name(tuijian_name)
+            insidepage.select_danbao_type(danbao_type)
+            insidepage.click_loan_info_save()
+            # time.sleep(1)
+            insidepage.click_loan_info_confirm()
+            self.driver.close()
+            # 切换到内审详情页面
+            self.driver.switch_to.window(handle2)
+            insidepage.click_submit_inside_approve()
+            time.sleep(1)
+            # 关闭内审详情页面
+            self.driver.close()
+            # 切换到内部审批页面
+            self.driver.switch_to.window(handle1)
+            # 刷新页面
+            self.driver.refresh()
+            actual_result = insidepage.get_result(self.loanno)
+            self.assertEqual(actual_result, expect_result)
+            print("申请内部审批结束")
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+    def test_g_approve_inside(self):
+        u"""审批内部审批流程"""
+        casename = sys._getframe().f_code.co_name
+        expect_result = "结束"
+        process_type = "内部审批"
+        view = "OK"
+        print("开始审批内审流程")
+        print("使用的贷款单号是:" + self.loanno)
+        # self.loanno = "SK0027-BK-1712-00012"
+        from com.ea.pages.todo_page import TodoPage, ApproveInsidePage
+        todopage = TodoPage(self.driver)
+        approveinsidepage = ApproveInsidePage(self.driver)
+        # 进入待办查询页面
+        try:
+            menu.go_to_wait_todo_query(self.driver)
+            todopage.input_yewuno(self.loanno)
+            todopage.click_query_all()
+            todopage.click_search_button()
+            for i in range(5):
+                todopage.click_first_row(process_type)
+                approveinsidepage.scroll_to_approve_view()
+                approveinsidepage.input_approve_view(view)
+                approveinsidepage.click_tongguo_button()
+                approveinsidepage.click_confirm_button()
+                time.sleep(5)
+            # 切换到内部审批页面
+            menu.go_to_inside_approve(self.driver)
+            actual_result = approveinsidepage.get_result(self.loanno)
+            self.assertEqual(actual_result, expect_result)
+            print("审批内审流程结束")
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+    def test_h_charge_apply(self):
+        u"""启动收费流程"""
+        casename = sys._getframe().f_code.co_name
+        expect_result = "审核中"
+        # self.loanno = "SK0027-BK-1712-00012"
+        print("启动收费流程开始")
+        print("使用的贷款单号是:" + self.loanno)
+        try:
+            from com.ea.pages.charge_page import ChargePage
+            chargepage = ChargePage(self.driver)
+            menu.go_to_charge_query(self.driver)
+            chargepage.click_loan_no(self.loanno)
+            chargepage.click_start_flow()
+            time.sleep(2)
+            actual_result = chargepage.get_result(self.loanno)
+            self.assertEqual(actual_result, expect_result)
+            print("启动收费流程结束")
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+    def test_i_charge_approve(self):
+        u"""审批收费流程"""
+        casename = sys._getframe().f_code.co_name
+        expect_result = "流程结束"
+        process_type = "保证金管理费"
+        approve_view = "OK"
+        daokuan_total = "50000"
+        # self.loanno = "SK0027-BK-1712-00012"
+        print("审批收费流程开始")
+        print("使用的贷款单号是:" + self.loanno)
+        try:
+            from com.ea.pages.todo_page import TodoPage, ApproveCharge
+            todopage = TodoPage(self.driver)
+            approvechaegepage = ApproveCharge(self.driver)
+            # 进入待办查询页面
+            menu.go_to_wait_todo_query(self.driver)
+            todopage.input_yewuno(self.loanno)
+            todopage.click_query_all()
+            todopage.click_search_button()
+            todopage.click_first_row(process_type)
+            approvechaegepage.scroll_to_payer()
+            approvechaegepage.input_payer(self.fullname)
+            approvechaegepage.click_pay_time()
+            approvechaegepage.click_save_button()
+            time.sleep(1)
+            approvechaegepage.scroll_to_approve_view()
+            time.sleep(3)
+            approvechaegepage.input_print_voucher(self.pic_path)
+            time.sleep(1)
+            approvechaegepage.input_approve_view(approve_view)
+            approvechaegepage.click_tongguo_button()
+            approvechaegepage.click_confirm_button()
+            time.sleep(5)
+            todopage.click_first_row(process_type)
+            approvechaegepage.scroll_to_daokuan_total()
+            time.sleep(1)
+            approvechaegepage.input_daokuan_total(daokuan_total)
+            approvechaegepage.click_pay_date()
+            approvechaegepage.select_collect_acount(1)
+            approvechaegepage.click_save_button()
+            approvechaegepage.scroll_to_approve_view()
+            approvechaegepage.input_approve_view(approve_view)
+            approvechaegepage.click_tongguo_button()
+            approvechaegepage.click_confirm_button()
+            time.sleep(5)
+            menu.go_to_charge_query(self.driver)
+            actual_result = approvechaegepage.get_result(self.loanno)
+            self.assertEqual(actual_result, expect_result)
+            print("审批收费流程结束")
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+    def test_j_interview_apply(self):
+        u"""面签提报"""
+        casename = sys._getframe().f_code.co_name
+        expect_result = "审核中"
+        jiekuanhetong_flag = "是"
+        # self.loanno = "SK0027-BK-1712-00012"
+        print("申请面签提报开始")
+        print("使用的贷款单号是:" + self.loanno)
+        try:
+            from com.ea.pages.interview_page import InterviewPage
+            interviewpage = InterviewPage(self.driver)
+            # 进入到面签提报页面
+            menu.go_to_interview_report(self.driver)
+            handle1 = self.driver.current_window_handle
+            interviewpage.click_loan_no(self.loanno)
+            handles = self.driver.window_handles
+            for handle in handles:
+                if handle != handle1:
+                    self.driver.switch_to.window(handle)
+            time.sleep(1)
+            interviewpage.click_edit_interview_button()
+            interviewpage.select_jiekuanhetong(jiekuanhetong_flag)
+            interviewpage.click_save_button()
+            interviewpage.click_confirm_button()
+            time.sleep(1)
+            interviewpage.input_file(self.pic_path)
+            time.sleep(1)
+            interviewpage.click_close_button()
+            time.sleep(1)
+            interviewpage.click_interview_submit()
+            # 关闭申报详情页面
+            self.driver.close()
+            # 切换到内部审批页面
+            self.driver.switch_to.window(handle1)
+            # 刷新页面
+            self.driver.refresh()
+            actual_result = interviewpage.get_result(self.loanno)
+            self.assertEqual(actual_result, expect_result)
+            print("申请面签提报结束")
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+    def test_k_interview_approve(self):
+        u"""面签审批"""
+        casename = sys._getframe().f_code.co_name
+        expect_result = "已放款"
+        types = "面签提报"
+        approve_view = "OK"
+        isphonecheck = "是"
+        phonecheckmessage = "OK"
+        isfujianover = "是"
+        file_path = gl.file_path
+        # self.loanno = "SK0027-BK-1712-00012"
+        print("面签审批开始")
+        print("使用的贷款单号是:" + self.loanno)
+        try:
+            from com.ea.pages.todo_page import TodoPage, ApproveInterview
+            todopage = TodoPage(self.driver)
+            approveinterviepage = ApproveInterview(self.driver)
+            menu.go_to_wait_todo_query(self.driver)
+            todopage.input_yewuno(self.loanno)
+            todopage.click_query_all()
+            todopage.click_search_button()
+            todopage.click_first_row(types)
+            approveinterviepage.scroll_to_approve_view()
+            approveinterviepage.input_approve_view(approve_view)
+            approveinterviepage.click_tongguo()
+            approveinterviepage.click_confirm()
+            time.sleep(5)
+            todopage.click_first_row(types)
+            approveinterviepage.scroll_to_is_phone_check()
+            approveinterviepage.select_is_phone_check(isphonecheck)
+            approveinterviepage.input_phone_check_message(phonecheckmessage)
+            approveinterviepage.click_phone_save_button()
+            time.sleep(1)
+            approveinterviepage.select_is_fujian_over(isfujianover)
+            approveinterviepage.click_fujian_save_button()
+            time.sleep(1)
+            approveinterviepage.scroll_to_approve_view()
+            approveinterviepage.input_approve_view(approve_view)
+            approveinterviepage.click_tongguo()
+            approveinterviepage.click_confirm()
+            time.sleep(5)
+            todopage.click_first_row(types)
+            approveinterviepage.scroll_to_card_date()
+            approveinterviepage.click_card_daoqi_date()
+            approveinterviepage.click_save_bank_loan_data()
+            time.sleep(1)
+            tools.create_huankuanjihua(self.fullname)
+            approveinterviepage.input_file(file_path)
+            time.sleep(3)
+            approveinterviepage.input_approve_view(approve_view)
+            approveinterviepage.click_tongguo()
+            approveinterviepage.click_confirm()
+            time.sleep(5)
+            menu.go_to_loan_query(self.driver)
+            actual_result = approveinterviepage.get_result(self.loanno)
+            self.assertEqual(actual_result, expect_result)
+            print("审批面签提报结束")
+        except Exception as e:
+            tools.get_screenshot(self.driver, self.screenshot_path, casename)
+            raise e
+
+
+if __name__ == '__main__':
+    unittest.main()
